@@ -8,7 +8,7 @@ import os
 import re
 from pathlib import Path
 
-SRC = Path(__file__).parent / "osiris-V4.html"
+SRC = Path(__file__).parent / "index.html"
 OUT = Path(__file__).parent
 
 # -------- read source --------
