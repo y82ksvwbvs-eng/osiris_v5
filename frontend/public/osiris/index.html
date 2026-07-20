@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="it" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>O.S.I.R.I.S. | Protocollo Inquisitorio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css?family=JetBrains+Mono:wght@300;400;700;800&family=Syncopate:wght@700;900&display=swap" rel="stylesheet">
+<script>
+    tailwind.config = {
+        darkMode: 'class',
+        theme: {
+            extend: {
+                fontFamily: {
+                    display: ['Syncopate', 'sans-serif'],
+                    mono: ['JetBrains Mono', 'monospace'],
+                },
+                colors: {
+                    monolith: {
+                        void: '#000000',
+                        panel: '#0a0a0c',
+                        border: '#27272a',
+                        borderActive: '#ffffff',
+                        textActive: '#ffffff',
+                        textDim: '#71717a',
+                        toxic: '#00ff66',
+                        toxicDim: '#021e0f',
+                        blood: '#ff003c',
+                        bloodDim: '#3a020e',
+                        gold: '#fbbf24',
+                        goldDim: '#453303'
+                    }
+                }
+            }
+        }
+    }
+</script>
+    <!-- Extracted styles (Phase 1). Load order reproduces the original cascade (sections 01→09). -->
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/animations.css">
+    <link rel="stylesheet" href="./assets/css/components.css">
+</head>
+</head>
+<body class="min-h-screen flex flex-col relative antialiased state-neutral pb-24" id="app-body">
+
+<!-- 01 // INTRO OVERLAY -->
+<div id="intro-overlay" class="fixed inset-0 bg-black/98 backdrop-blur-lg z-[10010] flex-col items-center justify-center p-4 sm:p-6 transition-opacity duration-500">
+    <div class="mono-panel p-8 sm:p-12 w-full max-w-md text-center bg-black border-2 border-monolith-border shadow-2xl rise">
+        <h1 class="font-display font-black text-white text-5xl sm:text-6xl tracking-tighter text-aberration mb-3">OSIRIS.</h1>
+        <p class="font-mono text-[10px] sm:text-xs text-monolith-textDim uppercase tracking-widest font-bold mb-8">Terminale di Valutazione Personale</p>
+        <div class="w-full h-px bg-monolith-border mb-8"></div>
+        <button id="enter-app-btn" class="btn-monolith w-full py-5 text-[11px] sm:text-xs font-mono tracking-widest font-black mb-3">ACCEDI AL PROTOCOLLO</button>
+        <p class="font-mono text-[9px] text-monolith-textDim uppercase tracking-widest mt-4 leading-relaxed">I DATI VERRANNO SALVATI LOCALMENTE SU QUESTO DISPOSITIVO.</p>
+    </div>
+</div>
+
+<!-- 02 // BOOT SEQUENCE OVERLAY -->
+<div id="boot-screen" class="fixed inset-0 bg-black z-[10000] hidden flex-col justify-center items-start p-8 sm:p-16 font-mono text-xs sm:text-sm text-monolith-toxic">
+    <div id="boot-text" class="whitespace-pre-wrap leading-relaxed"></div>
+</div>
+
+<!-- 03 // CORRUPTION FX LAYERS -->
+<div id="corruption-overlay"></div>
+<div id="glitch-band"></div>
+<div class="fixed inset-0 pointer-events-none opacity-[0.15] z-0 bg-grid-animated"></div>
+
+<!-- 04 // HEADER -->
+<header class="w-full px-4 sm:px-8 py-3 sm:py-5 border-b-2 border-monolith-border flex justify-between items-center relative z-10 bg-black/80 backdrop-blur-sm">
+    <div class="flex items-center gap-3 min-w-0">
+        <span class="w-2.5 h-2.5 bg-white rounded-none animate-pulse shadow-[0_0_8px_rgba(255,255,255,0.8)] flex-shrink-0" id="status-pixel"></span>
+        <span class="font-bold tracking-[0.2em] sm:tracking-[0.3em] text-[9px] sm:text-[10px] text-monolith-textDim uppercase font-mono truncate">
+            OSIRIS <span class="hidden sm:inline">// TERMINALE DI CONTROLLO</span>
+            <span id="prestige-badge" class="hidden text-monolith-gold ml-2 border border-monolith-gold px-1 rounded-sm">P1</span>
+        </span>
+    </div>
+    <div class="flex items-center gap-3 sm:gap-6 flex-shrink-0">
+        <div class="text-[9px] sm:text-[10px] text-monolith-textDim uppercase font-bold tracking-widest text-right font-mono">
+            CATENA: <span id="streak-counter" class="text-white text-sm sm:text-base font-black">0</span><span id="streak-badge" class="hidden"></span>
+        </div>
+        <div class="hidden sm:block text-[10px] text-monolith-textDim uppercase font-bold tracking-widest font-mono border-l-2 border-monolith-border pl-6">
+            RECORD: <span id="best-streak" class="text-white text-base font-black">0</span>
+        </div>
+    </div>
+</header>
+
+<!-- 04bis // PURGATORY BANNER -->
+<div id="purgatorio-banner">
+    >> MODALITÀ PURGATORIO ATTIVA // 3+ CICLI CONSECUTIVI FALLITI // TORNA AL 100% PER PURIFICARTI &lt;&lt;
+</div>
+
+<!-- 05 // MAIN DASHBOARD -->
+<main class="flex-grow max-w-[1200px] mx-auto w-full px-4 sm:px-8 pt-6 sm:pt-12 relative z-10 flex flex-col justify-start opacity-0 transition-opacity duration-500" id="main-content">
+    
+    <!-- Title + Meta -->
+    <div class="mb-6 sm:mb-12 select-none relative rise">
+        <h1 class="font-display font-black text-white title-huge uppercase leading-none text-aberration" id="main-title">OSIRIS.</h1>
+        <div class="flex flex-col sm:flex-row justify-between items-start mt-4 sm:mt-6 gap-4 sm:gap-6">
+            <p class="text-[10px] sm:text-xs text-monolith-textDim max-w-lg uppercase leading-relaxed font-bold tracking-widest font-mono border-l-2 border-monolith-border pl-4">
+                SISTEMA DI VALUTAZIONE COMPORTAMENTALE. OGNI TUA RINUNCIA VIENE REGISTRATA. IL SILENZIO È MEDIOCRITÀ, L'INAZIONE È COLPA.
+            </p> 
+            <div class="text-[9px] sm:text-[10px] text-monolith-textDim uppercase font-bold border-2 border-monolith-border px-4 py-2 bg-monolith-panel shrink-0 font-mono tracking-widest flex flex-col gap-1">
+                <span>DATA_SYS: <span id="date-display" class="text-white font-black">--.--.----</span></span>
+                <span>ORA_SYS: <span id="clock-display" class="text-monolith-toxic font-black font-mono">--:--:--</span></span>
+                <span id="target-task-display" class="text-monolith-blood hidden">REQ. MINIMO: <span id="target-task-count"></span> DOVERI</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 flex-grow items-start pb-10">
+        <!-- Actions Column -->
+        <div class="lg:col-span-7 flex flex-col gap-6 sm:gap-8">
+            <div class="mono-panel p-4 sm:p-6 rise" style="animation-delay:0.1s">
+                <span class="text-[9px] sm:text-[10px] text-monolith-textDim font-bold uppercase tracking-widest mb-4 block font-mono">01 // IMPONI UN DOVERE A TE STESSO</span>
+                <form id="action-form" class="flex flex-col sm:flex-row gap-3">
+                    <input type="text" id="action-input" placeholder="COSA DEVI FARE OGGI? NON MENTIRE." maxlength="200" class="input-monolith flex-1 p-4 text-[11px] sm:text-xs font-bold tracking-widest font-mono shadow-inner" autocomplete="off">
+                    <button type="submit" class="btn-monolith px-8 py-4 text-[11px] sm:text-xs font-mono tracking-widest">INJECT</button>
+                </form>
+                <div id="suggestions-wrap" class="mt-5 pt-4 border-t-2 border-monolith-border">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-[9px] sm:text-[10px] text-monolith-toxic font-bold uppercase tracking-widest font-mono">01b // DIRETTIVE SUGGERITE DAL PROTOCOLLO</span>
+                        <button type="button" onclick="Suggestions.reroll()" data-testid="btn-reroll-suggestions" class="text-[9px] text-monolith-textDim hover:text-white font-mono font-black tracking-widest border border-monolith-border hover:border-white px-2 py-1 transition-all" title="Altri suggerimenti">↻</button>
+                    </div>
+                    <div id="suggestions-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2"></div>
+                    <p class="text-[8px] text-monolith-textDim uppercase tracking-widest font-mono mt-2">// SELEZIONE RINNOVATA OGNI GIORNO. TOCCA PER INIETTARE.</p>
+                </div>
+            </div>
+            
+            <div class="mono-panel p-4 sm:p-6 flex flex-col min-h-[300px] sm:min-h-[450px] rise" style="animation-delay:0.15s">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end border-b-2 border-monolith-border pb-4 mb-5 gap-2 sm:gap-3">
+                    <span class="text-[9px] sm:text-[10px] text-monolith-textDim font-bold uppercase tracking-widest font-mono">02 // ELENCO OBBLIGHI // TOCCA ▚ PER SPOSTARE</span>
+                    <div class="flex flex-wrap gap-2">
+                        <button type="button" data-testid="btn-open-stats" onclick="UI.openStatsModal()" class="btn-3d stats px-3 py-2 text-[9px] sm:text-[10px] font-mono tracking-widest">STATS</button>
+                        <button type="button" data-testid="btn-open-trophies" onclick="UI.openTrophiesModal()" class="btn-3d trophies px-3 py-2 text-[9px] sm:text-[10px] font-mono tracking-widest">★ TROFEI</button>
+                        <button type="button" data-testid="btn-open-confessions" onclick="UI.openConfessionsModal()" class="btn-3d confessions px-3 py-2 text-[9px] sm:text-[10px] font-mono tracking-widest">REGISTRO</button>
+                        <button type="button" onclick="UI.openBackupModal()" class="btn-3d backup px-3 py-2 text-[9px] sm:text-[10px] font-mono tracking-widest">SAFE-01</button>
+                        <button type="button" onclick="UI.openPurgeModal()" class="btn-3d purge px-4 py-2 text-[9px] sm:text-[10px] font-mono tracking-widest">PURGA</button>
+                    </div>
+                </div>
+                <div id="task-list" class="space-y-3 max-h-[50vh] overflow-y-auto pr-1 sm:pr-2 flex-grow no-scrollbar pb-4 relative"></div>
+            </div>
+        </div> 
+
+        <!-- Index & Calendar Column -->
+        <div class="lg:col-span-5 flex flex-col gap-6 sm:gap-8">
+            <div class="mono-panel p-4 sm:p-6 rise" style="animation-delay:0.2s">
+                <span class="text-[9px] sm:text-[10px] text-monolith-textDim font-bold uppercase tracking-widest border-b-2 border-monolith-border pb-3 block mb-5 font-mono">03 // INDICE COMPILAZIONE</span>
+                <div class="flex justify-between items-baseline mt-3 gap-3">
+                    <span class="text-[10px] sm:text-xs text-monolith-textDim uppercase font-mono tracking-widest">VIRTÙ MATURATA</span>
+                    <span id="progress-text" class="text-3xl sm:text-5xl font-black font-mono text-white tracking-tighter">0%</span>
+                </div>
+                <div class="w-full h-2 sm:h-2.5 bg-monolith-border mt-5 relative overflow-hidden shadow-inner">
+                    <div id="progress-bar-fill" class="absolute top-0 left-0 h-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]" style="width:0%"></div>
+                </div>
+                <div class="grid grid-cols-2 gap-3 mt-6">
+                    <div class="border-2 border-monolith-border p-3 bg-black">
+                        <div class="text-[8px] sm:text-[9px] text-monolith-textDim uppercase font-mono tracking-widest">MEDIA 7GG</div>
+                        <div id="avg-week" class="text-lg sm:text-xl font-bold text-white font-mono mt-1">--%</div>
+                    </div>
+                    <div class="border-2 border-monolith-border p-3 bg-black">
+                        <div class="text-[8px] sm:text-[9px] text-monolith-textDim uppercase font-mono tracking-widest">MEDIA 30GG</div>
+                        <div id="avg-month" class="text-lg sm:text-xl font-bold text-white font-mono mt-1">--%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Judgment Triggers -->
+            <div id="daily-judgment-wrap" class="relative rise" style="animation-delay:0.25s">
+                <button onclick="Logic.triggerJudgment()" class="btn-monolith w-full py-4 sm:py-6 text-sm sm:text-base tracking-[0.2em] font-black uppercase shadow-[6px_6px_0px_#27272a] hover:bg-black hover:text-white hover:border-white transition-all font-mono">
+                    AVVIA ESAME CONDOTTA
+                </button>
+            </div>
+            
+            <div id="boss-battle-wrap" class="relative rise" style="animation-delay:0.28s">
+                <button id="btn-boss-main" onclick="Logic.triggerBossJudgment()" class="btn-boss">
+                    [!] GIUDIZIO SETTIMANALE // BOSS BATTLE 
+                    <span class="block font-mono text-[9px] mt-1 opacity-70 tracking-widest">BONUS XP IN BASE ALLA MEDIA // SOLO DOMENICA</span>
+                </button>
+            </div>
+
+            <!-- Boss Integrity (visible tutta la settimana) -->
+            <div id="boss-hp-wrap" class="boss-hp-wrap rise" style="animation-delay:0.29s">
+                <div class="boss-hp-label"><span>INTEGRITÀ BOSS SETTIMANALE</span><span class="boss-hp-val" id="boss-hp-text">100%</span></div>
+                <div class="boss-hp-bar"><div class="boss-hp-fill" id="boss-hp-fill" style="width:100%"></div></div>
+                <div class="mt-1 font-mono text-[8px] text-monolith-textDim tracking-widest" id="boss-hp-detail">DMG: 0 // HEAL: 0 // CICLO ATTIVO</div>
+            </div>
+
+            <!-- Calendar -->
+            <div class="mono-panel p-4 sm:p-6 rise" style="animation-delay:0.3s">
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center border-b-2 border-monolith-border pb-4 mb-5 gap-3">
+                    <span class="text-[9px] sm:text-[10px] text-monolith-textDim font-bold uppercase tracking-widest font-mono">04 // ARCHIVIO DEVIANZE</span>
+                    <div class="flex items-center gap-2 justify-between sm:justify-end">
+                        <button onclick="UI.changeMonth(-1)" class="p-1.5 px-3 border-2 border-monolith-border hover:border-white text-[11px] text-white bg-black font-mono font-black transition-all hover:bg-white hover:text-black" title="Precedente">&lt;</button>
+                        <span id="calendar-month-label" class="text-[10px] sm:text-[11px] text-white uppercase font-bold tracking-widest font-mono min-w-[120px] text-center">...</span>
+                        <button onclick="UI.changeMonth(1)" class="p-1.5 px-3 border-2 border-monolith-border hover:border-white text-[11px] text-white bg-black font-mono font-black transition-all hover:bg-white hover:text-black" title="Successivo">&gt;</button>
+                    </div>
+                </div>
+                <div class="grid grid-cols-7 gap-1 sm:gap-1.5 text-center font-bold text-[9px] sm:text-[10px] text-monolith-textDim mb-3 font-mono tracking-widest">
+                    <div>L</div><div>M</div><div>M</div><div>G</div><div>V</div><div>S</div><div>D</div>
+                </div>
+                <div id="calendar-grid" class="grid grid-cols-7 gap-1 sm:gap-1.5 text-center font-mono text-[10px] sm:text-[11px]"></div>
+                <div id="calendar-stats" class="mt-4 pt-3 border-t-2 border-monolith-border grid grid-cols-3 gap-2 text-center font-mono">
+                    <div><div class="text-[8px] text-monolith-textDim uppercase tracking-widest">PERFETTI</div><div id="cal-stat-perfect" class="text-sm font-black text-monolith-toxic">0</div></div>
+                    <div><div class="text-[8px] text-monolith-textDim uppercase tracking-widest">FALLITI</div><div id="cal-stat-failed" class="text-sm font-black text-monolith-blood">0</div></div>
+                    <div><div class="text-[8px] text-monolith-textDim uppercase tracking-widest">MEDIA MESE</div><div id="cal-stat-avg" class="text-sm font-black text-white">--%</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- ============================================================
+   OVERLAYS & MODALS
+============================================================ -->
+
+<!-- Processing Overlay -->
+<div id="processing-overlay" class="fixed inset-0 bg-black/95 backdrop-blur-md z-[100] hidden modal-scroll opacity-0 transition-opacity duration-300">
+    <div class="modal-inner">
+        <div class="mono-panel w-full max-w-md p-5 sm:p-8 bg-black border-2 border-white">
+            <span class="font-mono text-[10px] sm:text-[11px] text-white tracking-[0.3em] sm:tracking-[0.4em] uppercase mb-5 sm:mb-8 block text-center animate-pulse font-bold">ANALISI CLINICA IN CORSO</span> 
+            <div class="font-mono text-[9px] sm:text-[10px] text-monolith-textDim space-y-2 mb-5 sm:mb-8 h-20 sm:h-24 overflow-hidden relative border-l-2 border-monolith-border pl-4">
+                <div id="terminal-logs" class="absolute bottom-0 w-full space-y-2 tracking-widest"></div>
+            </div>
+            <div class="w-full h-1.5 bg-monolith-border relative overflow-hidden">
+                <div id="load-bar" class="absolute top-0 left-0 h-full bg-white w-0 transition-all duration-75 shadow-[0_0_10px_rgba(255,255,255,0.8)]"></div>
+            </div>
+            <div class="flex justify-between mt-3 font-mono text-[9px] sm:text-[10px] text-monolith-textDim font-bold tracking-widest">
+                <span>VERIFICA...</span><span id="load-pct" class="text-white">0%</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Verdict Overlay -->
+<div id="verdict-overlay" class="fixed inset-0 bg-black/98 backdrop-blur-lg z-[90] hidden modal-scroll opacity-0 transition-opacity duration-700">
+    <div class="modal-inner">
+        <div class="w-full max-w-3xl flex flex-col items-center transform translate-y-8 transition-transform duration-700" id="verdict-window">
+            <span class="font-mono text-[9px] sm:text-[10px] tracking-[0.25em] sm:tracking-[0.5em] uppercase mb-3 sm:mb-6 text-monolith-textDim font-bold text-center" id="verdict-tag">RAPPORTO DI CONDOTTA PERSONALE</span>
+            
+            <div class="mono-panel p-4 sm:p-10 w-full text-center border-4 border-white mb-4 sm:mb-6 flex flex-col justify-center items-center bg-black relative overflow-hidden" id="verdict-score-container">
+                <div class="absolute inset-0 bg-[repeating-linear-gradient(45deg,transparent,transparent_10px,rgba(255,255,255,0.03)_10px,rgba(255,255,255,0.03)_20px)] pointer-events-none"></div>
+                <span class="font-mono text-[8px] sm:text-[9px] text-monolith-textDim uppercase tracking-[0.2em] sm:tracking-[0.3em] mb-2 font-bold relative z-10">INDICE DI SUCCESSO COMPORTAMENTALE</span>
+                <h2 id="verdict-score" class="font-display font-black verdict-huge transition-colors duration-1000 relative z-10">0%</h2>
+                <span id="verdict-score-sub" class="font-mono text-[10px] sm:text-[11px] text-monolith-textDim uppercase tracking-widest mt-2 font-bold relative z-10">--/-- DOVERI</span>
+            </div> 
+
+            <div class="mono-panel p-4 sm:p-6 w-full bg-black mb-4 verdict-hidden" id="verdict-stats-panel">
+                <span class="section-tag">A // BREAKDOWN CLINICO</span>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
+                    <div class="stat-cell" id="stat-cell-done"><span class="lbl" id="lbl-cell-done">Adempiuti</span><span class="val" id="stat-done">0</span></div>
+                    <div class="stat-cell" id="stat-cell-missed"><span class="lbl" id="lbl-cell-missed">Disertati</span><span class="val" id="stat-missed">0</span></div>
+                    <div class="stat-cell" id="stat-cell-streak"><span class="lbl" id="lbl-cell-streak">Catena</span><span class="val" id="stat-streak">0</span></div>
+                    <div class="stat-cell" id="stat-cell-avg7"><span class="lbl" id="lbl-cell-avg7">Media 7GG</span><span class="val" id="stat-avg7">--%</span></div>
+                </div>
+            </div>
+
+            <div class="mono-panel p-4 sm:p-6 w-full bg-black mb-4 verdict-hidden" id="verdict-level-panel">
+                <span class="section-tag">B // STATO DI CARRIERA</span>
+                <div class="flex items-start justify-between gap-3">
+                    <div class="min-w-0">
+                        <div class="text-[8px] sm:text-[9px] text-monolith-textDim uppercase tracking-widest font-mono font-bold mb-1">LIVELLO</div>
+                        <div class="text-5xl sm:text-6xl text-white" id="level-num">01</div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-[8px] sm:text-[9px] text-monolith-textDim uppercase tracking-widest font-mono font-bold mb-1">GRADO</div>
+                        <div class="lvl-badge" id="level-grade">GRADO 0</div>
+                    </div>
+                </div>
+                <div class="mt-3 font-mono text-[11px] sm:text-sm font-black uppercase tracking-widest text-white" id="level-name">SPETTRO INERTE</div>
+                <div class="mt-1 font-mono text-[9px] text-monolith-textDim uppercase tracking-widest" id="level-tier-label">GRADO 0 // SCARTI</div>
+                <div class="mt-4">
+                    <div class="flex justify-between font-mono text-[9px] text-monolith-textDim uppercase tracking-widest mb-2 font-bold"> 
+                        <span>XP: <span id="level-xp-current" class="text-white">0</span></span>
+                        <span>NEXT: <span id="level-xp-next" class="text-white">100</span></span>
+                    </div>
+                    <div class="w-full h-2 bg-monolith-border relative overflow-hidden">
+                        <div id="level-xp-bar" class="absolute inset-y-0 left-0 bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]" style="width:0%"></div>
+                    </div>
+                    <div class="mt-2 font-mono text-[10px] sm:text-[11px] uppercase tracking-widest font-bold" id="level-xp-gain">+0 XP</div>
+                </div>
+                <div id="prestige-action-wrap" class="hidden mt-6 text-center border-t border-monolith-border pt-4">
+                    <button onclick="Logic.ascendPrestige()" class="btn-monolith w-full py-3 text-monolith-gold border-monolith-gold bg-monolith-goldDim/20 text-xs tracking-widest">
+                        [★] PRESTIGE // ASCENDI
+                    </button>
+                    <p class="text-[9px] mt-2 text-monolith-textDim font-mono uppercase">LIV.100 RAGGIUNTO. Azzera livello, mantieni statistiche, ottieni badge.</p>
+                </div>
+            </div>
+
+            <div class="mono-panel p-4 sm:p-6 w-full bg-black mb-4 verdict-hidden" id="verdict-week-panel">
+                <span class="section-tag">C // ISTOGRAMMA 7 CICLI</span>
+                <div id="week-bars" class="flex items-end justify-between gap-1 sm:gap-2 h-24 sm:h-28 pt-2"></div>
+                <div class="mt-2 font-mono text-[8px] sm:text-[9px] text-monolith-textDim uppercase tracking-widest text-center font-bold">CRONOLOGIA CONDOTTA — ULTIMI 7 GIORNI</div>
+            </div>
+
+            <div class="mono-panel p-4 sm:p-12 w-full bg-black border-2 border-white shadow-2xl flex flex-col" id="verdict-text-box">
+                <span class="font-mono text-[8px] sm:text-[9px] text-monolith-textDim uppercase tracking-[0.2em] sm:tracking-[0.3em] block mb-3 sm:mb-6 font-bold border-b border-monolith-border pb-2">VALUTAZIONE CLINICA DEL TUO VALORE:</span>
+                <p id="verdict-text" class="font-mono text-[11px] sm:text-[14px] text-white leading-relaxed sm:leading-loose font-bold uppercase min-h-[100px] sm:min-h-[120px] tracking-wide"></p>
+                <div class="mt-5 sm:mt-10 flex flex-col sm:flex-row gap-3 justify-center opacity-0 transition-opacity duration-700" id="verdict-action-area">
+                    <button onclick="CanvasExport.sharePNG()" class="btn-share flex-1 text-[10px] sm:text-xs">SIGILLA / CONDIVIDI</button>
+                    <button onclick="UI.closeVerdict()" class="btn-monolith flex-1 px-6 sm:px-12 py-3.5 sm:py-5 text-[10px] sm:text-xs font-mono tracking-widest font-black" id="verdict-close-btn">INCASSA E SPARISCI</button>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
+
+<div id="levelup-flash"><div class="card">LEVEL UP</div></div>
+
+<!-- Confessional Overlay -->
+<div id="confessional-overlay" class="fixed inset-0 bg-black/98 backdrop-blur-md z-[80] hidden flex-col items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+    <div class="mono-panel w-full max-w-lg max-h-[90vh] overflow-y-auto p-6 sm:p-8 bg-black border-4 border-monolith-blood flex flex-col">
+        <span class="font-mono text-[10px] sm:text-[11px] text-monolith-blood tracking-[0.3em] uppercase mb-4 block text-center font-bold">GIUSTIFICA LA TUA DEBOLEZZA</span>
+        <p class="font-mono text-[9px] sm:text-[10px] text-monolith-textDim uppercase mb-4 text-center leading-relaxed">Stai rinunciando a un dovere già segnalato come concluso. Digita almeno 50 caratteri di patetiche scuse per farti perdonare.</p>
+        <textarea id="confessional-input" oninput="UI.updateConfessionalCount()" class="input-monolith w-full h-32 p-3 text-[10px] sm:text-[11px] font-mono resize-none mb-2" placeholder="Scrivi qui le tue scuse..."></textarea>
+        <div class="flex justify-between items-center mb-6 font-mono text-[9px] sm:text-[10px]">
+            <span id="confessional-count" class="text-monolith-blood font-bold">0 / 50</span>
+            <span class="text-monolith-textDim">CARATTERI MINIMI</span>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4">
+            <button id="confessional-submit" onclick="Logic.submitConfessional()" disabled class="flex-1 btn-monolith py-4 text-[10px] sm:text-xs bg-monolith-blood border-monolith-blood text-white font-mono font-black tracking-widest">CONFERMA LA RESA</button>
+            <button onclick="UI.closeConfessional()" class="flex-1 btn-monolith py-4 text-[10px] sm:text-xs bg-white text-black font-mono font-black tracking-widest">ANNULLA</button>
+        </div>
+    </div>
+</div>
+
+<!-- Day Detail Overlay -->
+<div id="detail-overlay" class="fixed inset-0 bg-black/95 backdrop-blur-md z-[80] hidden modal-scroll opacity-0 transition-opacity duration-200">
+    <div class="modal-inner">
+        <div class="mono-panel w-full max-w-lg p-5 sm:p-8 bg-black border-2 border-monolith-border">
+            <div class="flex justify-between items-center border-b-2 border-monolith-border pb-4 mb-6">
+                <span class="font-mono text-[10px] sm:text-[11px] text-white tracking-[0.2em] sm:tracking-[0.3em] uppercase font-bold">ARCHIVIO // <span id="detail-date" class="text-monolith-textDim"></span></span>
+                <button onclick="UI.closeDetail()" class="text-[12px] text-monolith-textDim hover:text-white font-bold uppercase p-2 -mr-2 font-mono transition-colors">[X]</button>
+            </div>
+            <div class="text-center mb-6 bg-[#050505] p-4 border border-monolith-border">
+                <span class="font-mono text-[8px] sm:text-[9px] text-monolith-textDim uppercase tracking-widest block mb-2 font-bold">INDICE REGISTRATO</span>
+                <span id="detail-score" class="font-display font-black text-4xl sm:text-5xl tracking-tighter">--%</span>
+            </div>
+            <span class="font-mono text-[9px] sm:text-[10px] text-monolith-textDim uppercase tracking-widest block mb-3 font-bold">DOVERI COMPILATI:</span>
+            <div id="detail-tasks" class="space-y-2 max-h-[40vh] overflow-y-auto no-scrollbar pr-2"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Purge Modal -->
+<div id="purge-modal" class="fixed inset-0 bg-black/98 backdrop-blur-sm z-[80] hidden modal-scroll opacity-0 transition-opacity duration-200">
+    <div class="modal-inner">
+        <div class="mono-panel w-full max-w-lg p-5 sm:p-8 bg-black border-4 border-monolith-blood">
+            <span class="font-mono text-[10px] sm:text-[12px] text-monolith-blood tracking-[0.3em] sm:tracking-[0.4em] uppercase mb-5 block text-center font-black animate-pulse">ALLERTA PURGA SISTEMA</span>
+            <p class="font-mono text-[11px] sm:text-xs text-gray-300 leading-loose uppercase text-center mb-6 sm:mb-8 font-bold tracking-wide">
+                STAI PER CANCELLARE COMPLETAMENTE IL DATABASE DELLE TUE AZIONI. QUESTA CODARDA RINUNCIA AZZERERÀ LA TUA COSTANZA. CONFERMI L'AUTO-ASSOLUZIONE?
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3 sm:gap-6"> 
+                <button onclick="Logic.confirmPurge()" class="flex-1 btn-3d purge py-4 sm:py-5 text-[11px] sm:text-xs font-mono font-black tracking-widest">SÌ, SONO UN CODARDO</button>
+                <button onclick="UI.closePurgeModal()" class="flex-1 btn-monolith py-4 sm:py-5 text-[11px] sm:text-xs bg-white text-black font-mono font-black tracking-widest">ANNULLA PROCEDURA</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Stats Modal -->
+<div id="stats-modal" class="fixed inset-0 bg-black/98 backdrop-blur-md z-[80] hidden modal-scroll opacity-0 transition-opacity duration-200">
+    <div class="modal-inner">
+        <div class="mono-panel w-full max-w-3xl p-5 sm:p-8 bg-black border-2 border-white">
+            <div class="flex justify-between items-center border-b-2 border-monolith-border pb-4 mb-6">
+                <span class="font-mono text-[10px] sm:text-[11px] text-white tracking-[0.2em] sm:tracking-[0.3em] uppercase font-bold">STATISTICHE AVANZATE</span>
+                <button onclick="UI.closeStatsModal()" class="text-[12px] text-monolith-textDim hover:text-white font-bold uppercase p-2 -mr-2 font-mono transition-colors">[X]</button>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+                <div class="stat-cell opacity-100 transform-none"><span class="lbl">Giorni Giudicati</span><span class="val text-white" id="st-days">0</span></div>
+                <div class="stat-cell opacity-100 transform-none"><span class="lbl">Giorni 100%</span><span class="val text-monolith-toxic" id="st-perfect">0</span></div>
+                <div class="stat-cell opacity-100 transform-none"><span class="lbl">Giorni Falliti</span><span class="val text-monolith-blood" id="st-failed">0</span></div>
+                <div class="stat-cell opacity-100 transform-none"><span class="lbl">Media Globale</span><span class="val text-white" id="st-avg">0%</span></div>
+                <div class="stat-cell opacity-100 transform-none"><span class="lbl">Task Eseguiti</span><span class="val text-monolith-toxic" id="st-t-done">0</span></div>
+                <div class="stat-cell opacity-100 transform-none"><span class="lbl">Task Disertati</span><span class="val text-monolith-blood" id="st-t-miss">0</span></div>
+                <div class="stat-cell opacity-100 transform-none"><span class="lbl">Record Catena</span><span class="val text-white" id="st-best-streak">0</span></div>
+                <div class="stat-cell opacity-100 transform-none"><span class="lbl">Prestigio</span><span class="val text-monolith-gold" id="st-prestige">0</span></div>
+            </div>
+
+            <span class="font-mono text-[10px] text-monolith-textDim uppercase tracking-widest font-bold mb-3 block border-b border-monolith-border pb-2">RIEPILOGO CLINICO</span>
+            <p class="font-mono text-[9px] text-monolith-textDim uppercase tracking-widest">Consulta la sezione ★ TROFEI per gli obiettivi sbloccati.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Trophies Modal (SEPARATA — stile dorato) -->
+<div id="trophies-modal" class="fixed inset-0 bg-black/98 backdrop-blur-md z-[80] hidden modal-scroll opacity-0 transition-opacity duration-200">
+    <div class="modal-inner">
+        <div class="mono-panel w-full max-w-3xl p-5 sm:p-8 bg-black" style="border:4px solid #fbbf24; box-shadow: 8px 8px 0 #453303, 0 0 40px rgba(251,191,36,0.35);">
+            <div class="flex justify-between items-center pb-4 mb-6" style="border-bottom: 2px solid #fbbf24;">
+                <span class="font-display font-black text-[12px] sm:text-[14px] tracking-[0.3em] uppercase" style="color:#fbbf24; text-shadow: 0 0 12px rgba(251,191,36,0.6);">★ ARCHIVIO TROFEI</span>
+                <button onclick="UI.closeTrophiesModal()" data-testid="btn-close-trophies" class="text-[12px] font-bold uppercase p-2 -mr-2 font-mono transition-colors" style="color:#fbbf24">[X]</button>
+            </div>
+            <div class="mb-5 p-3" style="border:2px solid #453303; background:linear-gradient(180deg,rgba(251,191,36,0.05),transparent);">
+                <div class="flex justify-between font-mono text-[10px] uppercase tracking-widest">
+                    <span style="color:#fbbf24" class="font-black">PROGRESSO</span>
+                    <span class="text-white font-black"><span id="trophy-unlocked-count">0</span> / <span id="trophy-total-count">0</span></span>
+                </div>
+                <div class="w-full h-1.5 bg-monolith-border mt-2 relative overflow-hidden" style="border:1px solid #453303">
+                    <div id="trophy-progress-bar" style="width:0%;background:#fbbf24;box-shadow:0 0 12px rgba(251,191,36,0.8)" class="absolute inset-y-0 left-0 transition-all duration-700"></div>
+                </div>
+            </div>
+            <div id="trophies-grid" data-testid="trophies-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 max-h-[55vh] overflow-y-auto no-scrollbar pr-2"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Backup / Restore Modal -->
+<div id="backup-modal" class="fixed inset-0 bg-black/98 backdrop-blur-md z-[80] hidden modal-scroll opacity-0 transition-opacity duration-200">
+    <div class="modal-inner">
+        <div class="mono-panel w-full max-w-lg p-5 sm:p-7 bg-black border-2 border-monolith-toxic">
+            <div class="flex justify-between items-center border-b-2 border-monolith-toxic pb-4 mb-5">
+                <span class="font-mono text-[10px] sm:text-[11px] text-monolith-toxic tracking-[0.2em] sm:tracking-[0.3em] uppercase font-black">SAFE-01 // ARCHIVIO ESTERNO</span>
+                <button onclick="UI.closeBackupModal()" class="text-[12px] text-monolith-textDim hover:text-white font-bold uppercase p-2 -mr-2 font-mono transition-colors">[X]</button>
+            </div>
+            <p class="font-mono text-[9px] sm:text-[10px] text-monolith-textDim uppercase mb-5 leading-relaxed tracking-widest">
+                IL TUO ARCHIVIO VIVE SOLO SU QUESTO DISPOSITIVO. USA IL MODULO SOTTO PER ESPORTARE UN BACKUP (.JSON) O STRINGA COMPATTA (B64). TUTTO OFFLINE.
+            </p>
+            <div class="backup-section mb-4">
+                <span class="font-mono text-[9px] text-monolith-toxic font-black tracking-widest uppercase">A // ESPORTA</span>
+                <div class="flex flex-col sm:flex-row gap-2">
+                    <button onclick="Backup.exportFile()" class="btn-monolith flex-1 py-3 text-[10px] font-mono tracking-widest">SCARICA .JSON</button>
+                    <button onclick="Backup.copyBase64()" class="btn-monolith flex-1 py-3 text-[10px] font-mono tracking-widest">COPIA CODICE</button>
+                </div>
+                <button onclick="Backup.copyShareURL()" data-testid="btn-share-url" class="btn-monolith py-3 text-[10px] font-mono tracking-widest w-full mt-1" style="background:#fbbf24;border-color:#fbbf24;color:#000">🔗 COPIA URL DI TRASFERIMENTO</button>
+                <p class="font-mono text-[8px] text-monolith-textDim uppercase tracking-widest mt-1">Passa lo stato da mobile a desktop via link. Chi apre l'URL potrà sovrascrivere la sua memoria locale.</p>
+            </div>
+            <div class="backup-section mb-4">
+                <span class="font-mono text-[9px] text-monolith-toxic font-black tracking-widest uppercase">B // IMPORTA FILE</span>
+                <input type="file" id="backup-file-input" accept="application/json,.json" onchange="Backup.importFile(event)" class="font-mono text-[9px] text-monolith-textDim block w-full file:bg-white file:text-black file:border-0 file:px-4 file:py-2 file:font-black file:font-mono file:text-[9px] file:uppercase file:tracking-widest file:mr-3 file:cursor-pointer">
+            </div>
+            <div class="backup-section mb-5">
+                <span class="font-mono text-[9px] text-monolith-toxic font-black tracking-widest uppercase">C // IMPORTA CODICE</span>
+                <textarea id="backup-paste-area" rows="4" placeholder="Incolla qui il codice base-64..."></textarea>
+                <button onclick="Backup.importBase64()" class="btn-monolith py-3 text-[10px] font-mono tracking-widest">RIPRISTINA DA CODICE</button>
+            </div>
+            <p class="font-mono text-[9px] text-monolith-blood uppercase tracking-widest text-center leading-relaxed">ATTENZIONE: IL RIPRISTINO SOVRASCRIVE OGNI DATO ATTUALE. NON C'È RITORNO.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Confessions Register Modal -->
+<div id="confessions-modal" class="fixed inset-0 bg-black/98 backdrop-blur-md z-[80] hidden modal-scroll opacity-0 transition-opacity duration-200">
+    <div class="modal-inner">
+        <div class="mono-panel w-full max-w-2xl p-5 sm:p-8 bg-black border-4 border-monolith-blood">
+            <div class="flex justify-between items-center border-b-2 border-monolith-blood pb-4 mb-5">
+                <span class="font-mono text-[10px] sm:text-[12px] text-monolith-blood tracking-[0.2em] sm:tracking-[0.3em] uppercase font-black">REGISTRO DELLE SCUSE // ARCHIVIO DELLA VILTÀ</span>
+                <button onclick="UI.closeConfessionsModal()" data-testid="btn-close-confessions" class="text-[12px] text-monolith-textDim hover:text-white font-bold uppercase p-2 -mr-2 font-mono transition-colors">[X]</button>
+            </div>
+            <div class="mb-4 p-3 border-2 border-monolith-bloodDim bg-monolith-bloodDim/20 flex justify-between font-mono text-[10px] uppercase tracking-widest">
+                <span class="text-monolith-blood font-black">RESE REGISTRATE</span>
+                <span class="text-white font-black" id="confessions-count">0</span>
+            </div>
+            <div id="confessions-list" data-testid="confessions-list" class="space-y-3 max-h-[55vh] overflow-y-auto no-scrollbar pr-2"></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Toasts Container -->
+<div id="toast-container" class="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-[110] flex flex-col gap-3 sm:gap-4 pointer-events-none"></div>
+
+
+<!-- ============================================================
+   SCRIPTS // ES-MODULE ENTRY (Phase 9)
+============================================================ -->
+<script type="module" src="./js/app.js"></script>
+</body>
+</html>
