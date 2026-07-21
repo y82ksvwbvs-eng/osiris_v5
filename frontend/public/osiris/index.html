@@ -192,11 +192,13 @@
                 </div>
             </div>
 
-            <!-- Corruption Index (visibile tutta la settimana) -->
+            <!-- Integrity meter (visible metric — decreases with failure).
+                 Internally we still compute Corruption (0..100) to drive the Containment
+                 Protocol thresholds, but the user-facing bar shows Integrity (100 − Corruption). -->
             <div id="boss-hp-wrap" class="boss-hp-wrap rise" style="animation-delay:0.29s">
-                <div class="boss-hp-label"><span>INDICE DI CORRUZIONE</span><span class="boss-hp-val" id="boss-hp-text">0%</span></div>
-                <div class="boss-hp-bar"><div class="boss-hp-fill" id="boss-hp-fill" style="width:0%"></div></div>
-                <div class="mt-1 font-mono text-[8px] text-monolith-textDim tracking-widest" id="boss-hp-detail">INT: 100%  //  Δ+: 0  //  Δ-: 0  //  STATO: PROFILO STABILE</div>
+                <div class="boss-hp-label"><span>INDICE DI INTEGRITÀ</span><span class="boss-hp-val" id="boss-hp-text">100%</span></div>
+                <div class="boss-hp-bar"><div class="boss-hp-fill" id="boss-hp-fill" style="width:100%"></div></div>
+                <div class="mt-1 font-mono text-[8px] text-monolith-textDim tracking-widest" id="boss-hp-detail">INT: 100%  //  CORR: 0%  //  Δ+: 0  //  Δ-: 0  //  STATO: PROFILO STABILE</div>
             </div>
 
             <!-- Extraordinary Protocol trigger -->

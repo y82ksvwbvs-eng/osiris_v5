@@ -61,26 +61,28 @@ const BossHP = {
     },
 
     // Renders the weekly integrity panel as a terminal-style diagnostic.
-    // Notifies the Containment module of the current corruption level so it can
-    // trigger the threshold protocols (see js/logic/containment.js).
+    // Visual metric = Integrity (100% → 0%, drains with failure — intuitive "life-bar" reading).
+    // Internal metric = Corruption (0% → 100%, drives Containment Protocol thresholds).
     render() {
         const s = this.compute();
         const fill = $('boss-hp-fill'), txt = $('boss-hp-text'), det = $('boss-hp-detail'), wrap = $('boss-hp-wrap');
         if (!fill || !txt || !det || !wrap) return;
         const lvl = Gamification.fromXP(State.data.xp).level;
 
-        // The fill bar now visualizes CORRUPTION (rises with failure).
-        fill.style.width = `${s.corruption}%`;
-        txt.innerText = `${s.corruption}%`;
+        // Fill bar visualizes INTEGRITY: full at 100% (stable), drains toward 0%.
+        fill.style.width = `${s.integrity}%`;
+        txt.innerText = `${s.integrity}%`;
+        // STATO mirrors the Corruption band (which is what actually controls CP protocols),
+        // so the label degrades in lockstep with the CP-01..CP-05 thresholds.
         const status = (s.corruption >= 95) ? 'CONTENIMENTO CRITICO'
                      : (s.corruption >= 80) ? 'INSTABILITÀ'
                      : (s.corruption >= 60) ? 'MONITORAGGIO ESTESO'
                      : (s.corruption >= 40) ? 'DEVIAZIONE MODERATA'
                      : (s.corruption >= 20) ? 'AVVISO DIAGNOSTICO'
                      :                        'PROFILO STABILE';
-        det.innerText = `INT: ${s.integrity}%  //  Δ+: ${s.dev}  //  Δ-: ${s.cont}  //  CAP: ${s.cap}  //  LIV.${lvl}  //  STATO: ${status}`;
-        // CSS hooks: "crit" band mirrors the old critical state (now = high corruption);
-        // "dead" mirrors total loss (corruption maxed). Kept for backwards CSS compat.
+        det.innerText = `INT: ${s.integrity}%  //  CORR: ${s.corruption}%  //  Δ+: ${s.dev}  //  Δ-: ${s.cont}  //  CAP: ${s.cap}  //  LIV.${lvl}  //  STATO: ${status}`;
+        // CSS hooks continue to react to the Corruption band (so effects intensify
+        // as the bar drains).  `crit` = corruption ≥80%; `dead` = corruption maxed.
         wrap.classList.toggle('crit', s.corruption >= 80 && s.corruption < 100);
         wrap.classList.toggle('dead', s.corruption >= 100);
 
