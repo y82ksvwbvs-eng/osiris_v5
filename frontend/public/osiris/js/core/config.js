@@ -41,6 +41,13 @@ const LEVEL_NAMES = [
 
 // ACHIEVEMENTS: IDs preserved for save-compat with v3 records; only UI titles/descriptions
 // were normalized to the Behavioral Monitoring vocabulary (no RPG references).
+//
+// Schema extension (additive, back-compat with any older entry):
+//   rarity? : 'common' | 'rare' | 'epic' | 'legendary'   (defaults to 'common' in UI)
+//   xp?     : number                                      (XP granted at unlock; default 0)
+//   hidden? : boolean                                     (title/desc masked while locked)
+// Existing entries below are intentionally left without these fields — the UI applies
+// defaults, and Gamification.checkAchievements() awards zero XP when `xp` is missing.
 const ACHIEVEMENTS = [
     { id: 'first_blood',      title: 'PRIMA REGISTRAZIONE', desc: 'Il sistema ha completato il tuo primo Audit.',                              icon: '◉' },
     { id: 'streak_7',         title: 'DISCIPLINA STABILE',  desc: 'Sette cicli consecutivi in conformità totale.',                             icon: '◈' },
@@ -50,7 +57,22 @@ const ACHIEVEMENTS = [
     { id: 'level_50',         title: 'SOGLIA 50',           desc: 'Raggiunto il livello di osservazione 50.',                                  icon: '▣' },
     { id: 'total_100_tasks',  title: 'MACCHINA',            desc: 'Cento direttive completate. Il sistema registra ripetibilità.',             icon: '⊞' },
     { id: 'total_500_tasks',  title: 'ALGORITMO',           desc: 'Cinquecento direttive completate. Autonomia comportamentale confermata.',   icon: '⊟' },
-    { id: 'prestige_1',       title: 'ASCENSIONE',          desc: 'Primo grado di Prestigio registrato nell\'archivio.',                       icon: '✧' }
+    { id: 'prestige_1',       title: 'ASCENSIONE',          desc: 'Primo grado di Prestigio registrato nell\'archivio.',                       icon: '✧' },
+
+    // -------- Extension 01 // Behavioral achievements --------
+    // Consistency
+    { id: 'streak_100',        title: 'SENTINELLA',           desc: 'Cento cicli consecutivi in conformità totale. Il sistema riclassifica il soggetto come ad alta prevedibilità.', icon: '⬥', rarity: 'epic',      xp: 1500 },
+    { id: 'weekly_perfect_4',  title: 'OSSERVATORE COSTANTE', desc: 'Quattro audit settimanali consecutivi con indice di conformità ≥ 90%.',                                          icon: '⬢', rarity: 'rare',      xp: 500  },
+    // Self-control
+    { id: 'no_purgatory_30',   title: 'AUTOCONTROLLO',        desc: 'Trenta giudizi consecutivi senza mai attraversare lo stato di Purgatorio.',                                       icon: '◭', rarity: 'rare',      xp: 400  },
+    // Exploration
+    { id: 'explorer',          title: 'CENSORE ESAUSTIVO',    desc: 'Interrogate tutte le sezioni del terminale: STATS, TROFEI, REGISTRO, SAFE-01, EP.',                                icon: '⌘', rarity: 'common',    xp: 100  },
+    // Recovery
+    { id: 'recovery',          title: 'RIENTRO CONTROLLATO',  desc: 'Rientro nel sistema dopo ≥ 7 giorni di silenzio, con primo ciclo chiuso al 100%.',                                 icon: '↻', rarity: 'rare',      xp: 300  },
+    // Long-term progression
+    { id: 'level_100',         title: 'SOGLIA MASSIMA',       desc: 'Raggiunto il livello di osservazione 100. Il sistema conclude il ciclo di misurazione.',                          icon: '⬣', rarity: 'legendary', xp: 3000 },
+    // Hidden achievement (title & description masked until unlocked)
+    { id: 'ghost_protocol',    title: 'PROTOCOLLO INVISIBILE',desc: 'Tre Protocolli Straordinari consecutivi completati con successo. Nessuna deviazione rilevata.',                    icon: '⬙', rarity: 'legendary', xp: 1500, hidden: true }
 ];
 
 /* Pool di doveri suggeriti — O.S.I.R.I.S. propone almeno 2 direttive al giorno.

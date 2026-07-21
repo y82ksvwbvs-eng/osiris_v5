@@ -249,3 +249,38 @@ body.ct-5 #main-content { animation: ctDrift 6s ease-in-out infinite; }
 body.ct-3 #anomaly-wrap, body.ct-4 #anomaly-wrap, body.ct-5 #anomaly-wrap {
     border-color: rgba(255, 60, 60, 0.7);
 }
+
+/* ============================================================
+   11 // ACHIEVEMENT RARITY — badge + border tinting on trophy cards
+   ------------------------------------------------------------
+   Applied by TrophyUI.open() based on the `rarity` field of each
+   ACHIEVEMENT. Legacy trophies without `rarity` default to `.rar-common`
+   (white), preserving the pre-expansion look byte-identically.
+============================================================ */
+
+/* Base rarity label (always visible, dim if locked) */
+.trophy-card .trophy-rarity { color: rgba(255,255,255,0.4); }
+.trophy-card.unlocked .trophy-rarity { color: rgba(255,255,255,0.9); }
+
+/* Common — white / neutral (default, matches legacy trophy look) */
+.trophy-card.rar-common.unlocked      { border-color: rgba(255,255,255,0.5); }
+.trophy-card.rar-common.unlocked .trophy-rarity { color: #d4d4d8; }
+
+/* Rare — cyan */
+.trophy-card.rar-rare.unlocked        { border-color: rgba(60, 200, 255, 0.7); }
+.trophy-card.rar-rare.unlocked .trophy-icon,
+.trophy-card.rar-rare.unlocked .trophy-rarity { color: #3cc8ff; }
+
+/* Epic — amber (matches the existing "SBLOCCATO" glow) */
+.trophy-card.rar-epic.unlocked        { border-color: rgba(251, 191, 36, 0.85); box-shadow: 6px 6px 0 rgba(251,191,36,0.15); }
+.trophy-card.rar-epic.unlocked .trophy-icon,
+.trophy-card.rar-epic.unlocked .trophy-rarity { color: #fbbf24; }
+
+/* Legendary — toxic red, with a slow pulsing glow */
+.trophy-card.rar-legendary.unlocked   { border-color: #ff003c; box-shadow: 6px 6px 0 rgba(255, 0, 60, 0.2); animation: rarLegendaryPulse 3.6s ease-in-out infinite; }
+.trophy-card.rar-legendary.unlocked .trophy-icon,
+.trophy-card.rar-legendary.unlocked .trophy-rarity { color: #ff003c; }
+@keyframes rarLegendaryPulse {
+    0%, 100% { box-shadow: 6px 6px 0 rgba(255, 0, 60, 0.2); }
+    50%      { box-shadow: 6px 6px 0 rgba(255, 0, 60, 0.5); }
+}

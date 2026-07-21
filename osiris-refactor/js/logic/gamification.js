@@ -37,21 +37,47 @@ const Gamification = {
         return                 { outcome: 'defeat', xp: 0,  tag: "AN-W // CONTENIMENTO FALLITO",       css: '' };
     },
 
-    // Achievements
+    // Achievements — unlocks are additive; the unlock() helper reuses ACHIEVEMENTS
+    // metadata to also grant XP (only for entries carrying an `xp` field, so legacy
+    // achievements keep their zero-XP behavior).
     checkAchievements() {
         const d = State.data;
         const unlocks = [];
-        const unlock = (id) => { if (!d.achievements.includes(id)) { d.achievements.push(id); unlocks.push(id); } };
+        const unlock = (id) => {
+            if (d.achievements.includes(id)) return;
+            d.achievements.push(id);
+            const meta = ACHIEVEMENTS.find(a => a.id === id);
+            if (meta && typeof meta.xp === 'number' && meta.xp > 0) d.xp += meta.xp;
+            unlocks.push(id);
+        };
 
+        // --- Existing catalogue (untouched semantics) --------------------------
         if (Object.keys(d.history).filter(k => d.history[k].score !== null).length > 0) unlock('first_blood');
         if (d.bestStreak >= 7) unlock('streak_7');
         if (d.bestStreak >= 30) unlock('streak_30');
         if (d.totalTasksCompleted >= 100) unlock('total_100_tasks');
         if (d.totalTasksCompleted >= 500) unlock('total_500_tasks');
-        
+
         const lvl = this.fromXP(d.xp).level;
-        if (lvl >= 50) unlock('level_50');
+        if (lvl >= 50)  unlock('level_50');
         if (d.prestige > 0) unlock('prestige_1');
+
+        // --- Extension 01 // Behavioral achievements ---------------------------
+        // Consistency
+        if (d.bestStreak >= 100)          unlock('streak_100');
+        if (d.weeklyPerfectStreak >= 4)   unlock('weekly_perfect_4');
+        // Self-control
+        if (d.weeklyNoPurgatoryStreak >= 30) unlock('no_purgatory_30');
+        // Exploration — set of section IDs written by UI.trackExploration().
+        const requiredSections = ['stats','trophies','confessions','backup','ext_protocol'];
+        if (requiredSections.every(s => d.sectionsExplored.includes(s))) unlock('explorer');
+        // Long-term progression
+        if (lvl >= 100)                   unlock('level_100');
+        // Hidden — three consecutive successful Extraordinary Protocols.
+        if (d.extConsecutiveWins >= 3)    unlock('ghost_protocol');
+        // Recovery — flag is raised by State on ≥7 days silence and consumed by
+        //           Logic on the first 100% audit that follows the return.
+        //           Nothing to do here; Logic calls unlock('recovery') directly.
 
         if (unlocks.length > 0) {
             State.save();

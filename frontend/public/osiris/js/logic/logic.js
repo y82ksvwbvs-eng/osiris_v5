@@ -1,6 +1,7 @@
 // O.S.I.R.I.S. — Orchestrator: addTask, toggleTask, triggerJudgment, triggerBossJudgment, purge, prestige.
 // Extracted verbatim from osiris-V4.html (MOD 09).
 import { CONFIG }       from '../core/config.js';
+import { ACHIEVEMENTS } from '../core/config.js';
 import { Utils }        from '../core/utils.js';
 import { $ }            from '../core/dom.js';
 import { AudioEngine }  from '../core/audio.js';
@@ -101,6 +102,15 @@ const Logic = {
                     State.data.achievements.push('purgatory_escape');
                     setTimeout(() => UI.popAchievement('purgatory_escape'), 2000);
                 }
+                // Recovery — consume the flag set by State when the subject returned
+                // after ≥ 7 days of silence and closed the first following ciclo at 100%.
+                if (State.data.recoveryPending && !State.data.achievements.includes('recovery')) {
+                    State.data.achievements.push('recovery');
+                    const meta = ACHIEVEMENTS.find(a => a.id === 'recovery');
+                    if (meta && meta.xp) State.data.xp += meta.xp;
+                    setTimeout(() => UI.popAchievement('recovery'), 2000);
+                }
+                State.data.recoveryPending = false;
             } else { State.data.streak = 0; }
 
             const xpBefore = State.data.xp;
@@ -129,6 +139,16 @@ const Logic = {
                 State.data.achievements.push('boss_mythic');
                 setTimeout(() => UI.popAchievement('boss_mythic'), 2000);
             }
+
+            // --- Weekly-audit driven achievement trackers (Extension 01) ---------
+            // Consistency: streak of weekly audits with combined score ≥ 90%.
+            if (combined >= 90) State.data.weeklyPerfectStreak++;
+            else                State.data.weeklyPerfectStreak = 0;
+            // Self-control: streak of weekly audits closed without the subject being
+            // in the Purgatory state at the moment of the audit.
+            const purgatoryActive = document.body.classList.contains('purgatorio-active');
+            if (purgatoryActive) State.data.weeklyNoPurgatoryStreak = 0;
+            else                 State.data.weeklyNoPurgatoryStreak++;
 
             const xpBefore = State.data.xp;
             const lvlBefore = Gamification.fromXP(xpBefore);

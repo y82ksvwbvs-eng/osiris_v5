@@ -24,6 +24,7 @@ import { EXT_PROTOCOL } from '../core/config.js';
 import { Utils } from '../core/utils.js';
 import { State } from '../logic/state.js';
 import { BossHP } from '../logic/bossHp.js';
+import { Gamification } from '../logic/gamification.js';
 
 // Late-bound to keep the module import graph acyclic.
 let UI = null;
@@ -66,8 +67,14 @@ const ExtProtocol = {
         if (!p || p.resolved) return false;
         p.resolved = true;
         p.success  = !!success;
-        if (p.success) BossHP.registerHeal(EXT_PROTOCOL.SUCCESS_CONTAINMENT);
-        else           BossHP.registerDamage(EXT_PROTOCOL.FAILURE_DEVIATION);
+        if (p.success) {
+            BossHP.registerHeal(EXT_PROTOCOL.SUCCESS_CONTAINMENT);
+            // Extension 01 // ghost_protocol tracker — count consecutive successes.
+            State.data.extConsecutiveWins = (State.data.extConsecutiveWins || 0) + 1;
+        } else {
+            BossHP.registerDamage(EXT_PROTOCOL.FAILURE_DEVIATION);
+            State.data.extConsecutiveWins = 0;
+        }
         State.save();
         if (UI) {
             UI.popToast(p.success
@@ -75,6 +82,9 @@ const ExtProtocol = {
                 : `Protocollo Straordinario fallito. Deviazione ${EXT_PROTOCOL.FAILURE_DEVIATION} pt registrata.`,
                 !p.success);
         }
+        // Reuse the central achievement checker so ghost_protocol (and any future
+        // ext-driven unlock) fires without duplicating logic in this module.
+        Gamification.checkAchievements();
         return true;
     }
 };

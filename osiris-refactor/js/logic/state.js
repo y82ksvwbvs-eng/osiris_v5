@@ -23,7 +23,14 @@ const State = {
         bossWeek: null, bossDmg: 0, bossHeal: 0, confessions: [],
         // Behavioral Monitoring model — additive, save-compat with any v3 payload.
         currentAnomaly: null,   // { week, id }  — refreshed every Monday by Anomaly.current()
-        extProtocol:    null    // { week, text, resolved, success } — Extraordinary Protocol per ISO week
+        extProtocol:    null,   // { week, text, resolved, success } — Extraordinary Protocol per ISO week
+        // Achievement Expansion — trackers for the extension_01 catalog (all additive).
+        sectionsExplored:        [],     // string[] — modal IDs the subject has opened at least once
+        weeklyPerfectStreak:     0,      // consecutive weekly audits with score ≥ 90%
+        weeklyNoPurgatoryStreak: 0,      // consecutive weekly audits without entering purgatory
+        extConsecutiveWins:      0,      // consecutive successful Extraordinary Protocols (0 = streak broken)
+        lastActiveISO:           null,   // last ISO date the subject was seen active
+        recoveryPending:         false   // set when the subject returns after ≥ 7 days of silence
     },
     activeDate: Utils.todayStr(),
     currentCalendarDate: new Date(),
@@ -41,6 +48,16 @@ const State = {
             this.restoreBackup();
         }
         if (!this.data.history[this.activeDate]) this.data.history[this.activeDate] = { comp: [], score: null };
+        // Achievement-expansion // recovery: raise the pending flag if the subject
+        // returns after ≥ 7 days of silence (measured from `lastActiveISO`, which is
+        // refreshed by save()). Logic.triggerJudgment consumes the flag on the first
+        // 100% ciclo that follows.
+        if (this.data.lastActiveISO) {
+            const last = new Date(this.data.lastActiveISO);
+            const now  = new Date(this.activeDate);
+            const daysSilent = Math.floor((now - last) / (1000 * 60 * 60 * 24));
+            if (daysSilent >= 7) this.data.recoveryPending = true;
+        }
         this.checkDayChange();
         // CRITICAL FIX: always render the full interface after loading state.
         // Previously the UI only rendered when save() ran (i.e. on a day-change),
@@ -65,8 +82,18 @@ const State = {
         // Behavioral Monitoring additive fields — safe defaults for any v3 save.
         if (typeof this.data.currentAnomaly === 'undefined') this.data.currentAnomaly = null;
         if (typeof this.data.extProtocol    === 'undefined') this.data.extProtocol    = null;
+        // Achievement-expansion trackers — safe defaults so existing saves keep working.
+        if (!Array.isArray(this.data.sectionsExplored)) this.data.sectionsExplored = [];
+        if (typeof this.data.weeklyPerfectStreak     !== 'number') this.data.weeklyPerfectStreak     = 0;
+        if (typeof this.data.weeklyNoPurgatoryStreak !== 'number') this.data.weeklyNoPurgatoryStreak = 0;
+        if (typeof this.data.extConsecutiveWins      !== 'number') this.data.extConsecutiveWins      = 0;
+        if (typeof this.data.lastActiveISO           === 'undefined') this.data.lastActiveISO   = null;
+        if (typeof this.data.recoveryPending         !== 'boolean')   this.data.recoveryPending = false;
     },
     save() {
+        // Refresh the "last active" watermark on every persist — used by load() to
+        // detect ≥ 7-day silence gaps for the `recovery` achievement.
+        this.data.lastActiveISO = this.activeDate;
         Storage.set(CONFIG.BACKUP_KEY, JSON.stringify(this.data)); // Safe write
         Storage.set(CONFIG.STORE_KEY, JSON.stringify(this.data));
         UI.renderAll();

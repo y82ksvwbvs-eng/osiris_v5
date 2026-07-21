@@ -174,9 +174,23 @@ const UI = {
     /* Modals & Toasts */
     fadeInModal(id) { const m = $(id); m.classList.remove('hidden'); m.style.display = 'flex'; setTimeout(() => m.classList.remove('opacity-0'), 10); },
     fadeOutModal(id, cb) { const m = $(id); m.classList.add('opacity-0'); setTimeout(() => { m.style.display = 'none'; m.classList.add('hidden'); if(cb) cb(); }, 200); },
+
+    // Achievement Expansion 01 // exploration tracker.
+    // Adds `sectionId` to State.data.sectionsExplored (dedup) and re-runs the
+    // central achievement checker so `explorer` can unlock at the exact moment
+    // the last required section is opened. This is the single write point for
+    // the exploration set — every open* modal method routes through here.
+    trackExploration(sectionId) {
+        const d = State.data;
+        if (!Array.isArray(d.sectionsExplored)) d.sectionsExplored = [];
+        if (d.sectionsExplored.includes(sectionId)) return;
+        d.sectionsExplored.push(sectionId);
+        State.save();
+        Gamification.checkAchievements();
+    },
     openPurgeModal() { AudioEngine.play('error'); Utils.triggerVibe([30, 30]); this.fadeInModal('purge-modal'); },
     closePurgeModal() { AudioEngine.play('type'); this.fadeOutModal('purge-modal'); },
-    openBackupModal() { AudioEngine.play('check'); Utils.triggerVibe(15); $('backup-paste-area').value = ''; this.fadeInModal('backup-modal'); },
+    openBackupModal() { AudioEngine.play('check'); Utils.triggerVibe(15); $('backup-paste-area').value = ''; this.trackExploration('backup'); this.fadeInModal('backup-modal'); },
     closeBackupModal() { AudioEngine.play('type'); this.fadeOutModal('backup-modal'); },
 
     // Extraordinary Protocol (Behavioral Monitoring add-on).
@@ -186,6 +200,7 @@ const UI = {
     openExtProtocolModal() {
         AudioEngine.play('check'); Utils.triggerVibe(15);
         if (!ExtProtocol) return;
+        this.trackExploration('ext_protocol');
         const cur = ExtProtocol.current();
         const bodyInput = $('ext-protocol-body'), bodyActive = $('ext-protocol-active');
         if (cur && !cur.resolved) {
@@ -237,6 +252,7 @@ const UI = {
 
     openStatsModal() {
         AudioEngine.play('check');
+        this.trackExploration('stats');
         const d = State.data, hVals = Object.values(d.history).filter(x => x.score !== null);
         $('st-days').innerText = hVals.length;
         $('st-perfect').innerText = hVals.filter(x => x.score === 100).length;
@@ -248,10 +264,11 @@ const UI = {
         $('st-prestige').innerText = d.prestige;
         this.fadeInModal('stats-modal');
     },
-    openTrophiesModal() { TrophyUI.open(); },
+    openTrophiesModal() { this.trackExploration('trophies'); TrophyUI.open(); },
     closeTrophiesModal() { TrophyUI.close(); },
     openConfessionsModal() {
         AudioEngine.play('glitch'); Utils.triggerVibe([20, 20]);
+        this.trackExploration('confessions');
         const list = $('confessions-list'), cnt = $('confessions-count');
         const arr = Array.isArray(State.data.confessions) ? State.data.confessions : [];
         cnt.innerText = arr.length;
