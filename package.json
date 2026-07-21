@@ -1,5 +1,8 @@
 {
   "name": "osiris-v5",
   "private": true,
-  "packageManager": "yarn@1.22.22"
+  "packageManager": "yarn@1.22.22",
+  "scripts": {
+    "build": "cd frontend && yarn install && yarn build"
+  }
 }
