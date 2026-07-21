@@ -1,6 +1,10 @@
 // O.S.I.R.I.S. — Trophies modal open/close + progress bar.
 // Extracted verbatim from osiris-V4.html (MOD 16).
 import { AudioEngine } from '../core/audio.js';
+import { ACHIEVEMENTS } from '../core/config.js';
+import { Utils } from '../core/utils.js';
+import { $ } from '../core/dom.js';
+import { State } from '../logic/state.js';
 
 // Late-bound (TrophyUI → UI → TrophyUI).
 let UI = null;

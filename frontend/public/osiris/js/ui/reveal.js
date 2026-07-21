@@ -4,6 +4,7 @@ import { Utils }       from '../core/utils.js';
 import { $ }           from '../core/dom.js';
 import { AudioEngine } from '../core/audio.js';
 import { State }       from '../logic/state.js';
+import { Corruption }  from '../logic/corruption.js';
 import { Gamification } from '../logic/gamification.js';
 import { Narrator }    from '../features/narrator.js';
 

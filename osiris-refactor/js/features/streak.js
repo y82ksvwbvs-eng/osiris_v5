@@ -1,6 +1,7 @@
 // O.S.I.R.I.S. — Streak visualization tiers + best-streak persistence.
 // Extracted verbatim from osiris-V4.html (MOD 07).
 import { $ }     from '../core/dom.js';
+import { Utils } from '../core/utils.js';
 import { State } from '../logic/state.js';
 
 const Streak = {

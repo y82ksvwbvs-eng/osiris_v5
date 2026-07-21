@@ -2,12 +2,14 @@
 // Extracted verbatim from osiris-V4.html (MOD 14). Storage routed through adapter.
 import { CONFIG } from '../core/config.js';
 import { $ }      from '../core/dom.js';
+import { AudioEngine } from '../core/audio.js';
 import { State }  from '../logic/state.js';
 import { getStorage } from '../core/storage/index.js';
 
-// Late-bound (ShareURL → UI → ShareURL via inline handlers on modal buttons).
-let UI = null;
+// Late-bound (ShareURL → UI and ShareURL ↔ Backup peer cycle).
+let UI = null, Backup = null;
 export function bindUI(u) { UI = u; }
+export function bindBackup(b) { Backup = b; }
 
 const ShareURL = {
     build() {

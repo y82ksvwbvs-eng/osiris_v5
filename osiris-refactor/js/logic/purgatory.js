@@ -2,6 +2,7 @@
 // Extracted verbatim from osiris-V4.html (MOD 06).
 import { CONFIG } from '../core/config.js';
 import { State }  from './state.js';
+import { Corruption } from './corruption.js';
 
 const Purgatory = {
     evaluate() {

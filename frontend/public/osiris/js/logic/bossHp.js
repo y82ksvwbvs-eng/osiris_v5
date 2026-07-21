@@ -1,7 +1,9 @@
 // O.S.I.R.I.S. — Weekly Boss integrity (HP bar, dmg/heal accounting, weekly reset).
 // Extracted verbatim from osiris-V4.html (MOD 13).
 import { Utils } from '../core/utils.js';
+import { $ } from '../core/dom.js';
 import { State } from './state.js';
+import { Gamification } from './gamification.js';
 
 const BossHP = {
     ensureWeek() {

@@ -13,8 +13,8 @@ import { Streak }       from '../features/streak.js';
 import { Narrator }     from '../features/narrator.js';
 
 // Late-bound to break UI ↔ Logic circular imports.
-let UI = null, Reveal = null;
-export function bindUI(uiMod, revealMod) { UI = uiMod; Reveal = revealMod; }
+let UI = null, Reveal = null, Reorder = null;
+export function bindUI(uiMod, revealMod, reorderMod) { UI = uiMod; Reveal = revealMod; Reorder = reorderMod; }
 
 const Logic = {
     addTask(val) {

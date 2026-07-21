@@ -3,6 +3,10 @@
 import { LEVEL_NAMES, GRADES } from '../core/config.js';
 import { State } from './state.js';
 
+// Late-bound (Gamification → UI via checkAchievements → popAchievement toast).
+let UI = null;
+export function bindUI(u) { UI = u; }
+
 const Gamification = {
     MAX_LVL: 100,
     xpForLevelUp(lvl) { return 100 + Math.max(0, lvl - 1) * 50; },

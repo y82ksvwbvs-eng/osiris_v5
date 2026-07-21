@@ -1,6 +1,7 @@
 // O.S.I.R.I.S. — Tap-to-select / tap-to-place task reordering.
 // Extracted verbatim from osiris-V4.html (MOD 15).
 import { AudioEngine } from '../core/audio.js';
+import { Utils }       from '../core/utils.js';
 import { State }       from '../logic/state.js';
 
 // Late-bound (Reorder ↔ UI).

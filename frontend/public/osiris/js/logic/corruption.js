@@ -1,6 +1,7 @@
 // O.S.I.R.I.S. — CRT corruption FX driver (chromatic aberration + glitch band + shake).
 // Extracted verbatim from osiris-V4.html (MOD 06).
 import { AudioEngine } from '../core/audio.js';
+import { $ } from '../core/dom.js';
 
 const Corruption = {
     level: 0, target: 0, t: 0, running: false,

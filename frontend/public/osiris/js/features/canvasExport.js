@@ -1,6 +1,8 @@
 // O.S.I.R.I.S. — Verdict → PNG sigil (canvas rasterizer + Web Share).
 // Extracted verbatim from osiris-V4.html (MOD 12).
 import { $ }     from '../core/dom.js';
+import { Utils } from '../core/utils.js';
+import { AudioEngine } from '../core/audio.js';
 import { State } from '../logic/state.js';
 
 // Late-bound (CanvasExport → UI → CanvasExport via inline handlers).

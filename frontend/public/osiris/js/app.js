@@ -19,16 +19,16 @@ import { LocalStorageAdapter, setStorage } from './core/storage/index.js';
 import { State, bindUI as bindStateUI }      from './logic/state.js';
 import { Corruption }                        from './logic/corruption.js';
 import { Purgatory }                         from './logic/purgatory.js';
-import { Gamification }                      from './logic/gamification.js';
+import { Gamification, bindUI as bindGamificationUI } from './logic/gamification.js';
 import { BossHP }                            from './logic/bossHp.js';
 import { Logic, bindUI as bindLogicUI }      from './logic/logic.js';
 
 import { Narrator }                          from './features/narrator.js';
 import { Streak }                            from './features/streak.js';
 import { Suggestions, bindLogic as bindSuggestionsLogic } from './features/suggestions.js';
-import { Backup,        bindUI as bindBackupUI }      from './features/backup.js';
+import { Backup,        bindUI as bindBackupUI, bindShareURL as bindBackupShareURL }   from './features/backup.js';
 import { CanvasExport,  bindUI as bindCanvasUI }      from './features/canvasExport.js';
-import { ShareURL,      bindUI as bindShareUI }       from './features/shareURL.js';
+import { ShareURL,      bindUI as bindShareUI, bindBackup as bindShareBackup }        from './features/shareURL.js';
 import { Reorder,       bindUI as bindReorderUI }     from './features/reorder.js';
 import { TrophyUI,      bindUI as bindTrophyUI_UI }   from './features/trophyUi.js';
 
@@ -45,11 +45,14 @@ const App = {
 
         // 4. Late bindings — resolve the runtime graph without import cycles.
         bindStateUI(UI);
-        bindLogicUI(UI, Reveal);
+        bindLogicUI(UI, Reveal, Reorder);
+        bindGamificationUI(UI);
         bindSuggestionsLogic(Logic);
         bindBackupUI(UI);
+        bindBackupShareURL(ShareURL);
         bindCanvasUI(UI);
         bindShareUI(UI);
+        bindShareBackup(Backup);
         bindReorderUI(UI);
         bindTrophyUI_UI(UI);
         bindRevealUI(UI);

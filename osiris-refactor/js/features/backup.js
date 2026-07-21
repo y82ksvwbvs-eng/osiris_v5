@@ -3,11 +3,13 @@
 import { CONFIG } from '../core/config.js';
 import { Utils }  from '../core/utils.js';
 import { $ }      from '../core/dom.js';
+import { AudioEngine } from '../core/audio.js';
 import { State }  from '../logic/state.js';
 
-// Late-bound (Backup → UI → Backup via inline handlers).
-let UI = null;
+// Late-bound (Backup → UI and Backup ↔ ShareURL peer cycle).
+let UI = null, ShareURL = null;
 export function bindUI(u) { UI = u; }
+export function bindShareURL(s) { ShareURL = s; }
 
 const Backup = {
     b64e: (str) => btoa(unescape(encodeURIComponent(str))),
