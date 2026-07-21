@@ -84,3 +84,12 @@ memory/test_credentials.md
 
 # Mobile development
 android-sdk/
+
+# Emergent / generated artifacts (not part of the app)
+.emergent/
+.emergent/**
+.emergent/*
+
+# Auto-generated markers
+.emergent/markers/
+.emergent/cron/
