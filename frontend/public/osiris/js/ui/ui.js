@@ -1,6 +1,6 @@
 // O.S.I.R.I.S. — Rendering, modals, toasts, calendar, task list, reveal orchestration.
 // Extracted verbatim from osiris-V4.html (MOD 11).
-import { CONFIG, ACHIEVEMENTS } from '../core/config.js';
+import { CONFIG, ACHIEVEMENTS, GRADES } from '../core/config.js';
 import { Utils }                from '../core/utils.js';
 import { $ }                    from '../core/dom.js';
 import { AudioEngine }          from '../core/audio.js';
@@ -27,6 +27,17 @@ const UI = {
 
         $('streak-counter').innerText = d.streak; $('best-streak').innerText = d.bestStreak;
         Streak.apply();
+        // Persistent system status — Rank (GRADO) + Level (LIV) shown always in the header.
+        // Data source is unchanged: Gamification.fromXP(xp) + the GRADES table already
+        // used by the stats modal and by the verdict reveal. This block only mirrors
+        // the same computation into the compact header slot — no new state or storage.
+        {
+            const lvl = Gamification.fromXP(d.xp).level;
+            const gradeIdx = Math.min(GRADES.length - 1, Math.floor((Math.max(1, lvl) - 1) / 10));
+            const gEl = $('status-grade'), lEl = $('status-level');
+            if (gEl) gEl.innerText = GRADES[gradeIdx].grade;
+            if (lEl) lEl.innerText = String(lvl).padStart(2, '0');
+        }
         $('progress-text').innerText = `${pct}% [${comp}/${total}]`; $('progress-bar-fill').style.width = `${pct}%`;
         
         if (d.prestige > 0) { $('prestige-badge').innerText = `P${d.prestige}`; $('prestige-badge').classList.remove('hidden'); }

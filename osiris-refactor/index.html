@@ -83,6 +83,14 @@
         <div class="hidden sm:block text-[10px] text-monolith-textDim uppercase font-bold tracking-widest font-mono border-l-2 border-monolith-border pl-6">
             RECORD: <span id="best-streak" class="text-white text-base font-black">0</span>
         </div>
+        <!-- Persistent system status (Rank + Level).
+             Reuses Gamification.fromXP(State.data.xp) + GRADES — no new state / no new persistence.
+             Rendered inside UI.renderAll() so it refreshes on every save. -->
+        <div id="status-badge" data-testid="status-badge" class="text-[9px] sm:text-[10px] text-monolith-textDim uppercase font-bold tracking-widest font-mono border-l-2 border-monolith-border pl-3 sm:pl-6 flex items-center gap-1.5 sm:gap-2" title="Grado e livello di osservazione corrente">
+            <span class="hidden sm:inline">GRADO:</span><span id="status-grade" class="text-white font-black text-[10px] sm:text-sm">—</span>
+            <span class="text-monolith-border">·</span>
+            <span>LIV.</span><span id="status-level" class="text-white font-black text-sm sm:text-base">—</span>
+        </div>
     </div>
 </header>
 
