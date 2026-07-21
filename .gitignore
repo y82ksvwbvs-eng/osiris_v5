@@ -93,3 +93,10 @@ android-sdk/
 # Auto-generated markers
 .emergent/markers/
 .emergent/cron/
+
+# IDE/cache
+.ruff_cache/
+
+# Local copies
+"backend copy"/
+backend\ copy/
