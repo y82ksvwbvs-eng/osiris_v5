@@ -1,0 +1,2726 @@
+[
+  {
+    "file": "./osiris-refactor/build.py",
+    "keyword": "firebase"
+  },
+  {
+    "file": "./osiris-refactor/README.md",
+    "keyword": "firebase"
+  },
+  {
+    "file": "./osiris-refactor/js/core/storage/FirebaseAdapter.js",
+    "keyword": "firebase"
+  },
+  {
+    "file": "./osiris-refactor/docs/storage.md",
+    "keyword": "firebase"
+  },
+  {
+    "file": "./osiris-refactor/docs/firebase-migration.md",
+    "keyword": "firebase"
+  },
+  {
+    "file": "./osiris-refactor/docs/architecture.md",
+    "keyword": "firebase"
+  },
+  {
+    "file": "./memory/PRD.md",
+    "keyword": "emergent"
+  },
+  {
+    "file": "./memory/PRD.md",
+    "keyword": "emergentagent"
+  },
+  {
+    "file": "./memory/PRD.md",
+    "keyword": "preview.emergentagent"
+  },
+  {
+    "file": "./reports/licenses.json",
+    "keyword": "boto3"
+  },
+  {
+    "file": "./reports/licenses.json",
+    "keyword": "aws"
+  },
+  {
+    "file": "./.emergent/cron/watch_crons.sh",
+    "keyword": "emergent"
+  },
+  {
+    "file": "./.emergent/cron/webhook_crond.sh",
+    "keyword": "emergent"
+  },
+  {
+    "file": "./frontend/public/index.html",
+    "keyword": "emergent"
+  },
+  {
+    "file": "./frontend/public/osiris/js/core/storage/FirebaseAdapter.js",
+    "keyword": "firebase"
+  },
+  {
+    "file": "./frontend/node_modules/css-tree/CHANGELOG.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/svgo/CHANGELOG.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/svgo/README.md",
+    "keyword": "paypal"
+  },
+  {
+    "file": "./frontend/node_modules/svgo/README.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/svgo/node_modules/css-tree/CHANGELOG.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/svgo/node_modules/argparse/lib/argument_parser.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/svgo/plugins/_collections.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/svgo/plugins/convertPathData.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/semver/semver.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-overflow-shorthand/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/schema-utils/node_modules/ajv-keywords/dist/definitions/deepProperties.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/schema-utils/node_modules/ajv-keywords/dist/definitions/deepRequired.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/schema-utils/node_modules/ajv-keywords/src/definitions/deepRequired.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/schema-utils/node_modules/ajv-keywords/src/definitions/deepProperties.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/schema-utils/node_modules/ajv/lib/core.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/schema-utils/node_modules/ajv/lib/compile/validate/index.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/schema-utils/node_modules/ajv/dist/core.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/schema-utils/node_modules/ajv/dist/compile/validate/index.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-color-functional-notation/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tinyglobby/node_modules/picomatch/README.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/tinyglobby/node_modules/picomatch/lib/picomatch.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/css-minimizer-webpack-plugin/dist/index.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/@peculiar/utils/build/esm/encoding/hex.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@peculiar/utils/build/cjs/encoding/hex.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@peculiar/x509/build/x509.cjs.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/@peculiar/x509/build/index.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/@peculiar/x509/build/x509.es.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-image-set-function/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/diff-sequences/build/index.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/icss-utils/src/createICSSRules.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/icss-utils/src/extractICSS.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/to-regex-range/README.md",
+    "keyword": "paypal"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-nesting/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/d3-shape/README.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/resolve-url-loader/lib/join-function/debug.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/resolve-url-loader/lib/engine/postcss.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tsconfig-paths/lib/__tests__/try-path.test.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tsconfig-paths/src/__tests__/try-path.test.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-env-function/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/cssdb/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/glob-to-regexp/index.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/serve-index/index.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/watchpack/lib/util/globToRegExp.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint-plugin-react/lib/rules/no-unknown-property.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/@webassemblyjs/ast/lib/transform/ast-module-to-module-context/index.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@webassemblyjs/ast/esm/transform/ast-module-to-module-context/index.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@webassemblyjs/wast-printer/lib/index.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@webassemblyjs/wast-printer/esm/index.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/lib/lib/evaluateTailwindFunctions.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/lib/lib/defaultExtractor.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/lib/lib/expandTailwindAtRules.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/lib/lib/generateRules.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/lib/lib/expandApplyAtRules.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/lib/lib/setupContextUtils.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/lib/util/formatVariantSelector.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/lib/util/pluginUtils.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/lib/util/toPath.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/lib/util/cloneNodes.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/lib/util/escapeClassName.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/lib/cli/build/utils.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/peers/index.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/peers/index.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/peers/index.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/peers/index.js",
+    "keyword": "gpt"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/node_modules/postcss-nested/index.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/node_modules/postcss-load-config/package.json",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/node_modules/postcss-load-config/README.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/node_modules/postcss-load-config/src/index.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/node_modules/postcss/lib/stringifier.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/node_modules/postcss/lib/declaration.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/node_modules/postcss/lib/at-rule.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/node_modules/postcss/lib/node.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/node_modules/postcss/lib/root.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/node_modules/postcss/lib/container.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/node_modules/postcss/lib/node.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/node_modules/postcss/lib/document.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/node_modules/postcss/lib/map-generator.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/node_modules/postcss/lib/rule.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/node_modules/postcss/lib/parser.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/node_modules/postcss/lib/container.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/node_modules/postcss/lib/root.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/node_modules/postcss/lib/comment.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/node_modules/postcss-import/index.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/src/lib/evaluateTailwindFunctions.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/src/lib/defaultExtractor.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/src/lib/expandTailwindAtRules.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/src/lib/generateRules.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/src/lib/expandApplyAtRules.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/src/lib/setupContextUtils.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/src/util/formatVariantSelector.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/src/util/pluginUtils.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/src/util/toPath.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/src/util/cloneNodes.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/src/util/escapeClassName.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/tailwindcss/src/cli/build/utils.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-dir-pseudo-class/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/fast-uri/lib/utils.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/fast-uri/test/rfc-3986.test.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/fast-uri/test/security-normalization.test.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-unique-selectors/src/index.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-normalize-whitespace/src/index.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/core-js-pure/modules/web.url.constructor.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/core-js-pure/internals/uint8-from-hex.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@standard-schema/spec/README.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@standard-schema/spec/dist/index.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/axios/CHANGELOG.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/@csstools/postcss-color-function/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/@csstools/postcss-nested-calc/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/@csstools/postcss-trigonometric-functions/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/@csstools/postcss-is-pseudo-class/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/@csstools/postcss-progressive-custom-properties/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/@csstools/postcss-unset-value/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/@csstools/postcss-text-decoration-shorthand/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/@csstools/postcss-font-format-keywords/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/@csstools/postcss-oklab-function/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/@csstools/postcss-normalize-display-values/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/@csstools/selector-specificity/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/@csstools/postcss-ic-unit/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/@csstools/postcss-hwb-function/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/@csstools/postcss-cascade-layers/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/@csstools/postcss-stepped-value-functions/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/@csstools/normalize.css/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-browser-comments/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/chokidar/node_modules/glob-parent/README.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/is-network-error/index.js",
+    "keyword": "sentry"
+  },
+  {
+    "file": "./frontend/node_modules/glob-to-regex.js/README.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/glob-to-regex.js/lib/index.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/glob-to-regex.js/lib/index.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/http-proxy/CHANGELOG.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-color-rebeccapurple/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/fork-ts-checker-webpack-plugin/node_modules/semver/internal/constants.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/fork-ts-checker-webpack-plugin/node_modules/eslint/lib/linter/code-path-analysis/code-path.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/fork-ts-checker-webpack-plugin/node_modules/eslint/lib/linter/code-path-analysis/code-path-segment.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/fork-ts-checker-webpack-plugin/node_modules/eslint/lib/linter/code-path-analysis/code-path-state.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/fork-ts-checker-webpack-plugin/node_modules/eslint/lib/linter/code-path-analysis/id-generator.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/fork-ts-checker-webpack-plugin/node_modules/eslint/lib/linter/code-path-analysis/code-path-analyzer.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/fork-ts-checker-webpack-plugin/node_modules/eslint/lib/linter/code-path-analysis/debug-helpers.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/fork-ts-checker-webpack-plugin/node_modules/eslint/lib/linter/code-path-analysis/fork-context.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/fork-ts-checker-webpack-plugin/node_modules/eslint/lib/cli-engine/cli-engine.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/fork-ts-checker-webpack-plugin/node_modules/eslint/lib/rules/no-unreachable-loop.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/fork-ts-checker-webpack-plugin/node_modules/eslint/lib/rules/require-atomic-updates.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/fork-ts-checker-webpack-plugin/node_modules/eslint/lib/rules/no-fallthrough.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/fork-ts-checker-webpack-plugin/node_modules/eslint/lib/rules/getter-return.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/fork-ts-checker-webpack-plugin/node_modules/eslint/lib/rules/no-this-before-super.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/fork-ts-checker-webpack-plugin/node_modules/eslint/lib/rules/max-len.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/fork-ts-checker-webpack-plugin/node_modules/eslint/lib/rules/array-callback-return.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/fork-ts-checker-webpack-plugin/node_modules/eslint/lib/rules/constructor-super.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/fork-ts-checker-webpack-plugin/node_modules/eslint/lib/rules/consistent-return.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/fork-ts-checker-webpack-plugin/node_modules/eslint/lib/rules/no-useless-return.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/fork-ts-checker-webpack-plugin/node_modules/eslint/lib/rules/no-unreachable.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/html-webpack-plugin/README.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/whatwg-url/dist/url-state-machine.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/autoprefixer/lib/value.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/autoprefixer/lib/declaration.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/autoprefixer/lib/processor.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/autoprefixer/lib/supports.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/autoprefixer/lib/hacks/grid-template-areas.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/autoprefixer/lib/hacks/writing-mode.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/autoprefixer/lib/hacks/flex-flow.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/autoprefixer/lib/hacks/grid-utils.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/autoprefixer/lib/hacks/grid-template.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/autoprefixer/lib/hacks/flex-direction.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/autoprefixer/lib/hacks/mask-composite.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/@svgr/hast-util-to-babel-ast/lib/mappings.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/css-has-pseudo/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-router/CHANGELOG.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-router/dist/production/index-react-server-client-CSv-KZBk.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-router/dist/production/instrumentation-DlJ2QV7d.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-router/dist/production/index-react-server.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-router/dist/production/data-BqZ2x964.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-router/dist/production/index.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-router/dist/production/index-react-server.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-router/dist/production/chunk-LCJTIOKZ.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-router/dist/production/index.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-router/dist/production/lib/types/internal.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-router/dist/development/index-react-server-client-CSv-KZBk.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-router/dist/development/instrumentation-DlJ2QV7d.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-router/dist/development/index-react-server.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-router/dist/development/data-BqZ2x964.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-router/dist/development/index.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-router/dist/development/chunk-AM3XM4LS.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-router/dist/development/index-react-server.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-router/dist/development/index.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-router/dist/development/lib/types/internal.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/glob-parent/README.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@jsonjoy.com/fs-snapshot/node_modules/@jsonjoy.com/json-pack/lib/cbor/CborDecoder.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@jsonjoy.com/fs-snapshot/node_modules/@jsonjoy.com/json-pack/lib/msgpack/MsgPackDecoder.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@jsonjoy.com/json-pack/lib/cbor/CborDecoder.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@jsonjoy.com/json-pack/lib/msgpack/MsgPackDecoder.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/express/History.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/strip-comments/README.md",
+    "keyword": "paypal"
+  },
+  {
+    "file": "./frontend/node_modules/@eslint/config-array/dist/esm/std__path/windows.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@eslint/config-array/dist/esm/std__path/posix.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@eslint/config-helpers/README.md",
+    "keyword": "sentry"
+  },
+  {
+    "file": "./frontend/node_modules/@eslint/plugin-kit/README.md",
+    "keyword": "sentry"
+  },
+  {
+    "file": "./frontend/node_modules/@eslint/object-schema/README.md",
+    "keyword": "sentry"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-focus-visible/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/faye-websocket/CHANGELOG.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/picomatch/README.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/picomatch/lib/picomatch.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-discard-duplicates/src/index.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/eslint-plugin-react-hooks/cjs/eslint-plugin-react-hooks.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint-plugin-react-hooks/cjs/eslint-plugin-react-hooks.development.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint-plugin-react-hooks/cjs/eslint-plugin-react-hooks.production.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-minify-selectors/src/index.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/@typescript-eslint/typescript-estree/node_modules/semver/internal/constants.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/is-module/README.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-dom/cjs/react-dom-server.bun.development.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/react-dom/cjs/react-dom-server.bun.development.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-dom/cjs/react-dom-server.edge.development.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/react-dom/cjs/react-dom-server.edge.development.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-dom/cjs/react-dom-profiling.development.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/react-dom/cjs/react-dom-client.development.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/react-dom/cjs/react-dom-server.browser.development.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/react-dom/cjs/react-dom-server.browser.development.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-dom/cjs/react-dom-server.node.production.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/react-dom/cjs/react-dom-server-legacy.node.development.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-dom/cjs/react-dom-server-legacy.browser.development.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/react-dom/cjs/react-dom-server-legacy.browser.development.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-dom/cjs/react-dom-server-legacy.node.production.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-dom/cjs/react-dom-server.edge.production.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-dom/cjs/react-dom-server-legacy.browser.production.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-dom/cjs/react-dom-server.bun.production.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-dom/cjs/react-dom-server.node.development.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/react-dom/cjs/react-dom-server.node.development.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-dom/cjs/react-dom-server.browser.production.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@reduxjs/toolkit/dist/query/react/index.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@reduxjs/toolkit/src/query/react/buildHooks.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-ordered-values/src/index.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/cssstyle/lib/parsers.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@babel/plugin-transform-template-literals/lib/index.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/sourcemap-codec/CHANGELOG.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/sourcemap-codec/README.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/sourcemap-codec/dist/sourcemap-codec.es.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/sourcemap-codec/dist/sourcemap-codec.umd.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/framer-motion/dist/framer-motion.dev.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/framer-motion/dist/framer-motion.dev.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/framer-motion/dist/cjs/dom.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/framer-motion/dist/cjs/dom.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/framer-motion/dist/cjs/dom-mini.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/framer-motion/dist/cjs/client.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/framer-motion/dist/cjs/index.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/framer-motion/dist/cjs/index.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@noble/hashes/argon2.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@noble/hashes/src/argon2.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@noble/hashes/esm/argon2.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/axe-core/locales/pl.json",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/.cache/babel-loader/39541e1774e6c13bb6ebc582cdee3bac1cdd84ab729ff7bd91a04fda7f908e04.json",
+    "keyword": "emergent"
+  },
+  {
+    "file": "./frontend/node_modules/.cache/babel-loader/329e75b5665c3116366839db1670374d2d2958cab5b313d40da9ed9b5e4f7b3a.json",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/.cache/babel-loader/78adf4c99c6a12f5333189aecb2ac2608c636ffb5f685b349b62d18a5469b777.json",
+    "keyword": "emergent"
+  },
+  {
+    "file": "./frontend/node_modules/.cache/babel-loader/ce113b6854d5116746f61506a1543ac2f912a14138caa2fd727e1ffb40c24fc1.json",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/.cache/babel-loader/31d2cd2da3913ec61a9546927f5f3076c2c5645fb179a2744d90c82f12fb7349.json",
+    "keyword": "emergent"
+  },
+  {
+    "file": "./frontend/node_modules/.cache/babel-loader/09c1f11b196be5adc9bab14cb0e44761207f7b6ebc45389806fb8967ddeedac0.json",
+    "keyword": "emergent"
+  },
+  {
+    "file": "./frontend/node_modules/.cache/babel-loader/66fbae333dcb78d13b50018b2a644166b26bb747e58037e9d6a2a44f97a9f7d4.json",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/.cache/babel-loader/344caf08ec4b5b0c7dacffeb78bf068d60ee042fd86d9f73d8d0338dd6e904ad.json",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/.cache/babel-loader/2e0ebe4bdebd1a17c386e5a1640ad98788f1795ca58bd265063b7f1b283d7420.json",
+    "keyword": "emergent"
+  },
+  {
+    "file": "./frontend/node_modules/.cache/babel-loader/797a37b7c67df90986af907326f5531946ad6c32e9746343e1f1bb519c1dcbed.json",
+    "keyword": "emergent"
+  },
+  {
+    "file": "./frontend/node_modules/.cache/babel-loader/1bdd7c4784043ae408d1ddeb4a1bbdab5b139d78c3de689a953517a0f9d4b8b7.json",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/language-subtag-registry/data/json/language.json",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/language-subtag-registry/data/json/index.json",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/language-subtag-registry/data/json/registry.json",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/istanbul-lib-report/node_modules/semver/internal/constants.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/workbox-build/node_modules/source-map/package.json",
+    "keyword": "newrelic"
+  },
+  {
+    "file": "./frontend/node_modules/workbox-build/node_modules/source-map/README.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/workbox-build/node_modules/source-map/lib/util.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/workbox-build/node_modules/@apideck/better-ajv-errors/dist/better-ajv-errors.cjs.development.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/workbox-build/node_modules/@apideck/better-ajv-errors/dist/better-ajv-errors.esm.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/workbox-build/node_modules/@apideck/better-ajv-errors/src/lib/utils.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/workbox-build/node_modules/ajv/lib/core.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/workbox-build/node_modules/ajv/lib/compile/validate/index.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/workbox-build/node_modules/ajv/dist/core.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/workbox-build/node_modules/ajv/dist/compile/validate/index.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/stylehacks/src/plugins/leadingUnderscore.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/stylehacks/src/plugins/leadingStar.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/stylehacks/src/plugins/htmlCombinatorCommentBody.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/ci-info/README.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/enhanced-resolve/lib/SymlinkPlugin.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/enhanced-resolve/lib/TsconfigPathsPlugin.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/enhanced-resolve/lib/getPaths.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/enhanced-resolve/lib/util/path-browser.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/source-map/package.json",
+    "keyword": "newrelic"
+  },
+  {
+    "file": "./frontend/node_modules/source-map/README.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/source-map/lib/source-map-consumer.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/source-map/dist/source-map.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/source-map/dist/source-map.debug.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@pmmmwh/react-refresh-webpack-plugin/node_modules/source-map/package.json",
+    "keyword": "newrelic"
+  },
+  {
+    "file": "./frontend/node_modules/@pmmmwh/react-refresh-webpack-plugin/node_modules/source-map/README.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/@pmmmwh/react-refresh-webpack-plugin/node_modules/source-map/lib/util.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/mini-css-extract-plugin/types/utils.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/mini-css-extract-plugin/dist/utils.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-svgo/node_modules/svgo/README.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-svgo/node_modules/svgo/dist/svgo.browser.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-svgo/node_modules/svgo/plugins/_collections.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-svgo/node_modules/svgo/plugins/convertPathData.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint-plugin-jsx-a11y/docs/rules/no-autofocus.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/@types/d3-shape/index.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@types/prettier/index.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@types/lodash/common/string.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@types/d3-scale/index.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@types/eslint/index.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@types/d3-ease/index.d.ts",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/@types/d3-path/index.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/@types/d3-path/index.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@types/node/path.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@types/node/v8.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@types/node/url.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@types/connect/index.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/magic-string/dist/magic-string.cjs.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/magic-string/dist/magic-string.es.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/magic-string/dist/magic-string.umd.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/webpack/lib/ContextModuleFactory.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/webpack/lib/util/comparators.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/webpack/lib/util/ParallelismFactorCalculator.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/webpack/lib/util/createMappings.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/webpack/lib/sharing/utils.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/webpack/lib/css/CssParser.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/webpack/lib/dependencies/LocalModulesHelpers.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/webpack/lib/typescript/TypeScriptPlugin.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/webpack/node_modules/webpack-sources/lib/helpers/readMappings.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@nodelib/fs.walk/out/readers/common.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@nodelib/fs.scandir/out/providers/common.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/lodash/lodash.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/lodash/split.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/zod/README.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/zod/lib/standard-schema.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@jridgewell/gen-mapping/dist/gen-mapping.umd.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@jridgewell/gen-mapping/dist/types/gen-mapping.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@jridgewell/gen-mapping/dist/types/types.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@jridgewell/gen-mapping/src/gen-mapping.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@jridgewell/gen-mapping/src/types.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@jridgewell/trace-mapping/README.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@jridgewell/trace-mapping/dist/trace-mapping.umd.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@jridgewell/trace-mapping/src/trace-mapping.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@jridgewell/trace-mapping/src/sort.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@jridgewell/trace-mapping/src/flatten-map.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@jridgewell/trace-mapping/src/types.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@jridgewell/trace-mapping/src/binary-search.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@jridgewell/trace-mapping/src/by-source.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@jridgewell/sourcemap-codec/README.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@jridgewell/sourcemap-codec/dist/sourcemap-codec.umd.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@jridgewell/sourcemap-codec/src/sourcemap-codec.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@jridgewell/remapping/dist/remapping.umd.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@jridgewell/remapping/src/source-map-tree.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-logical/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/v8-to-istanbul/node_modules/source-map/package.json",
+    "keyword": "newrelic"
+  },
+  {
+    "file": "./frontend/node_modules/v8-to-istanbul/node_modules/source-map/README.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/v8-to-istanbul/node_modules/source-map/lib/util.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/ajv-keywords/keywords/deepProperties.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/ajv-keywords/keywords/deepRequired.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/psl/data/rules.js",
+    "keyword": "firebase"
+  },
+  {
+    "file": "./frontend/node_modules/psl/data/rules.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/terser/CHANGELOG.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/terser/README.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/terser/lib/mozilla-ast.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/terser/lib/parse.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/terser/lib/size.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/terser/lib/transform.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/terser/lib/ast.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/terser/lib/output.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/terser/lib/compress/evaluate.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/terser/lib/compress/inference.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/terser/lib/compress/drop-side-effect-free.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/terser/lib/compress/index.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/terser/lib/compress/index.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/terser/tools/domprops.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/terser/tools/domprops.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/terser/dist/bundle.min.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/terser/dist/bundle.min.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/terser/dist/bundle.min.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/didyoumean/didYouMean-1.2.1.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/didyoumean/README.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/safer-buffer/Porting-Buffer.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/css-blank-pseudo/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/micromatch/README.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/micromatch/index.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/hyperdyperid/lib/maps.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/hyperdyperid/lib/maps.js",
+    "keyword": "gpt"
+  },
+  {
+    "file": "./frontend/node_modules/emojis-list/README.md",
+    "keyword": "paypal"
+  },
+  {
+    "file": "./frontend/node_modules/terser-webpack-plugin/dist/minify.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/jiti/dist/jiti.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/jiti/dist/babel.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/css-loader/node_modules/semver/internal/constants.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/css-loader/dist/plugins/postcss-import-parser.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/css-loader/dist/plugins/postcss-url-parser.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-place/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-app-rewired/node_modules/semver/semver.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-preset-env/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-preset-env/node_modules/autoprefixer/lib/value.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-preset-env/node_modules/autoprefixer/lib/declaration.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-preset-env/node_modules/autoprefixer/lib/processor.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-preset-env/node_modules/autoprefixer/lib/supports.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-preset-env/node_modules/autoprefixer/lib/hacks/grid-template-areas.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-preset-env/node_modules/autoprefixer/lib/hacks/writing-mode.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-preset-env/node_modules/autoprefixer/lib/hacks/flex-flow.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-preset-env/node_modules/autoprefixer/lib/hacks/grid-utils.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-preset-env/node_modules/autoprefixer/lib/hacks/grid-template.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-preset-env/node_modules/autoprefixer/lib/hacks/flex-direction.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-preset-env/node_modules/autoprefixer/lib/hacks/mask-composite.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/eslint-import-resolver-node/README.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/argparse/argparse.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/d3-scale/README.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint/lib/linter/code-path-analysis/code-path.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint/lib/linter/code-path-analysis/code-path-segment.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint/lib/linter/code-path-analysis/code-path-state.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint/lib/linter/code-path-analysis/id-generator.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint/lib/linter/code-path-analysis/code-path-analyzer.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint/lib/linter/code-path-analysis/debug-helpers.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint/lib/linter/code-path-analysis/fork-context.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint/lib/cli-engine/cli-engine.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint/lib/types/index.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint/lib/shared/string-utils.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint/lib/rules/no-unreachable-loop.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint/lib/rules/require-atomic-updates.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint/lib/rules/no-fallthrough.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint/lib/rules/getter-return.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint/lib/rules/no-this-before-super.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint/lib/rules/max-len.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint/lib/rules/no-useless-assignment.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint/lib/rules/array-callback-return.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint/lib/rules/constructor-super.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint/lib/rules/consistent-return.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint/lib/rules/no-useless-return.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint/lib/rules/no-unreachable.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint/node_modules/eslint-scope/README.md",
+    "keyword": "sentry"
+  },
+  {
+    "file": "./frontend/node_modules/eslint/node_modules/eslint-visitor-keys/README.md",
+    "keyword": "sentry"
+  },
+  {
+    "file": "./frontend/node_modules/braces/README.md",
+    "keyword": "paypal"
+  },
+  {
+    "file": "./frontend/node_modules/big.js/README.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-selector-parser/postcss-selector-parser.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-selector-parser/API.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-selector-parser/CHANGELOG.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-selector-parser/dist/parser.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-selector-parser/dist/selectors/attribute.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-selector-parser/dist/selectors/node.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-selector-parser/dist/selectors/namespace.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-selector-parser/dist/selectors/className.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/es-toolkit/dist/compat/util/toPath.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/es-toolkit/dist/compat/util/toPath.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/es-toolkit/dist/compat/object/setWith.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/es-toolkit/dist/compat/object/setWith.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/es-toolkit/dist/compat/string/split.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/jest-snapshot/node_modules/semver/internal/constants.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-loader/node_modules/semver/internal/constants.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@hookform/resolvers/standard-schema/src/__tests__/standard-schema.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/qs/CHANGELOG.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/qs/lib/parse.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/qs/lib/utils.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/qs/test/parse.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/qs/test/stringify.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint-plugin-import/CHANGELOG.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint-plugin-import/README.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint-plugin-import/lib/index.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint-plugin-import/lib/rules/no-useless-path-segments.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint-plugin-import/lib/rules/order.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint-plugin-import/lib/rules/no-internal-modules.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint-plugin-import/docs/rules/no-useless-path-segments.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/minimatch/minimatch.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-modules-local-by-default/node_modules/postcss-selector-parser/postcss-selector-parser.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-modules-local-by-default/node_modules/postcss-selector-parser/API.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-modules-local-by-default/node_modules/postcss-selector-parser/CHANGELOG.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-modules-local-by-default/node_modules/postcss-selector-parser/dist/parser.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-modules-local-by-default/node_modules/postcss-selector-parser/dist/selectors/attribute.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-modules-local-by-default/node_modules/postcss-selector-parser/dist/selectors/node.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-modules-local-by-default/node_modules/postcss-selector-parser/dist/selectors/namespace.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-modules-local-by-default/node_modules/postcss-selector-parser/dist/selectors/className.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/ipaddr.js/ipaddr.min.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/ipaddr.js/lib/ipaddr.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-minify-params/src/index.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-discard-comments/src/index.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/semver/internal/constants.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint-plugin-react/lib/rules/no-unknown-property.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint-plugin-react/node_modules/semver/semver.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/lib/lib/evaluateTailwindFunctions.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/lib/lib/defaultExtractor.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/lib/lib/expandTailwindAtRules.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/lib/lib/generateRules.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/lib/lib/expandApplyAtRules.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/lib/lib/setupContextUtils.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/lib/util/formatVariantSelector.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/lib/util/pluginUtils.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/lib/util/toPath.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/lib/util/cloneNodes.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/lib/util/escapeClassName.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/lib/cli/build/utils.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/peers/index.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/peers/index.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/peers/index.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/peers/index.js",
+    "keyword": "gpt"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/node_modules/postcss-nested/index.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/node_modules/postcss-load-config/package.json",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/node_modules/postcss-load-config/README.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/node_modules/postcss-load-config/src/index.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/node_modules/postcss/lib/stringifier.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/node_modules/postcss/lib/declaration.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/node_modules/postcss/lib/at-rule.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/node_modules/postcss/lib/node.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/node_modules/postcss/lib/root.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/node_modules/postcss/lib/container.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/node_modules/postcss/lib/node.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/node_modules/postcss/lib/document.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/node_modules/postcss/lib/map-generator.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/node_modules/postcss/lib/rule.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/node_modules/postcss/lib/parser.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/node_modules/postcss/lib/container.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/node_modules/postcss/lib/root.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/node_modules/postcss/lib/comment.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/node_modules/postcss-import/index.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/src/lib/evaluateTailwindFunctions.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/src/lib/defaultExtractor.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/src/lib/expandTailwindAtRules.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/src/lib/generateRules.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/src/lib/expandApplyAtRules.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/src/lib/setupContextUtils.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/src/util/formatVariantSelector.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/src/util/pluginUtils.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/src/util/toPath.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/src/util/cloneNodes.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/src/util/escapeClassName.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/tailwindcss/src/cli/build/utils.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint-plugin-flowtype/CONTRIBUTING.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint-plugin-react-hooks/cjs/eslint-plugin-react-hooks.development.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/@babel/eslint-parser/node_modules/semver/semver.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint/lib/linter/code-path-analysis/code-path.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint/lib/linter/code-path-analysis/code-path-segment.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint/lib/linter/code-path-analysis/code-path-state.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint/lib/linter/code-path-analysis/id-generator.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint/lib/linter/code-path-analysis/code-path-analyzer.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint/lib/linter/code-path-analysis/debug-helpers.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint/lib/linter/code-path-analysis/fork-context.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint/lib/cli-engine/cli-engine.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint/lib/rules/no-unreachable-loop.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint/lib/rules/require-atomic-updates.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint/lib/rules/no-fallthrough.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint/lib/rules/getter-return.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint/lib/rules/no-this-before-super.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint/lib/rules/max-len.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint/lib/rules/array-callback-return.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint/lib/rules/constructor-super.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint/lib/rules/consistent-return.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint/lib/rules/no-useless-return.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint/lib/rules/no-unreachable.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint-plugin-import/CHANGELOG.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint-plugin-import/README.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint-plugin-import/lib/index.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint-plugin-import/lib/rules/no-useless-path-segments.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint-plugin-import/lib/rules/order.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint-plugin-import/lib/rules/no-internal-modules.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint-plugin-import/node_modules/semver/semver.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/react-scripts/node_modules/eslint-plugin-import/docs/rules/no-useless-path-segments.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/d3-ease/README.md",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/d3-ease/dist/d3-ease.min.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/d3-ease/dist/d3-ease.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/d3-ease/src/elastic.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/victory-vendor/lib-vendor/d3-ease/src/elastic.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/sanitize.css/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/d3-path/README.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/d3-path/README.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/motion-dom/dist/index.d.ts",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/motion-dom/dist/cjs/index.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-modules-extract-imports/src/index.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/recharts/CHANGELOG.md",
+    "keyword": "stripe"
+  },
+  {
+    "file": "./frontend/node_modules/recharts/CHANGELOG.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/recharts/lib/util/svgPropertiesNoEvents.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/recharts/lib/cartesian/CartesianGrid.js",
+    "keyword": "stripe"
+  },
+  {
+    "file": "./frontend/node_modules/recharts/lib/cartesian/ReferenceLine.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/recharts/lib/state/selectors/axisSelectors.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/recharts/lib/shape/Polygon.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/recharts/es6/util/svgPropertiesNoEvents.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/recharts/es6/cartesian/CartesianGrid.js",
+    "keyword": "stripe"
+  },
+  {
+    "file": "./frontend/node_modules/recharts/es6/cartesian/ReferenceLine.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/recharts/es6/state/selectors/axisSelectors.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/recharts/es6/shape/Polygon.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/recharts/types/util/svgPropertiesNoEvents.d.ts",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/recharts/types/cartesian/CartesianGrid.d.ts",
+    "keyword": "stripe"
+  },
+  {
+    "file": "./frontend/node_modules/recharts/types/cartesian/ReferenceLine.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/recharts/types/state/referenceElementsSlice.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/recharts/umd/Recharts.js",
+    "keyword": "stripe"
+  },
+  {
+    "file": "./frontend/node_modules/recharts/umd/Recharts.js",
+    "keyword": "amplitude"
+  },
+  {
+    "file": "./frontend/node_modules/recharts/umd/Recharts.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/pkijs/build/index.es.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/pkijs/build/index.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/source-map-js/package.json",
+    "keyword": "newrelic"
+  },
+  {
+    "file": "./frontend/node_modules/source-map-js/README.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/source-map-js/lib/source-map-consumer.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/lucide-react/dist/umd/lucide-react.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/lucide-react/dist/umd/lucide-react.min.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/lucide-react/dist/esm/icons/message-square-heart.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/lucide-react/dist/cjs/lucide-react.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/get-intrinsic/CHANGELOG.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/espree/README.md",
+    "keyword": "sentry"
+  },
+  {
+    "file": "./frontend/node_modules/espree/node_modules/eslint-visitor-keys/README.md",
+    "keyword": "sentry"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-modules-values/src/index.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/@istanbuljs/load-nyc-config/package.json",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/@istanbuljs/load-nyc-config/node_modules/argparse/lib/argument_parser.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/postcss/lib/stringifier.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss/lib/declaration.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss/lib/at-rule.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss/lib/node.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss/lib/root.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss/lib/container.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss/lib/node.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss/lib/document.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss/lib/map-generator.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss/lib/rule.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss/lib/parser.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss/lib/container.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss/lib/root.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss/lib/comment.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/fast-glob/out/providers/matchers/partial.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/fast-glob/out/providers/matchers/matcher.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/fast-glob/out/providers/matchers/matcher.d.ts",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/fast-glob/node_modules/glob-parent/README.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-normalize/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/ajv/lib/data.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/ajv/lib/compile/util.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/ajv/dist/ajv.min.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/ajv/dist/ajv.bundle.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/webpack-dev-middleware/node_modules/mime-types/HISTORY.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-pseudo-class-any-link/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/fill-range/README.md",
+    "keyword": "paypal"
+  },
+  {
+    "file": "./frontend/node_modules/core-js/modules/web.url.constructor.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/core-js/internals/uint8-from-hex.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/mime-db/db.json",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/mime-db/HISTORY.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-double-position-gradients/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/date-fns/package.json",
+    "keyword": "firebase"
+  },
+  {
+    "file": "./frontend/node_modules/date-fns/locale/cdn.min.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/date-fns/locale/cdn.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/date-fns/locale/cy/cdn.min.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/date-fns/locale/cy/cdn.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/date-fns/locale/cy/_lib/match.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-gap-properties/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/asap/CHANGES.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/asap/README.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/regex-parser/README.md",
+    "keyword": "paypal"
+  },
+  {
+    "file": "./frontend/node_modules/mime-types/HISTORY.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/mime-types/node_modules/mime-db/db.json",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/mime-types/node_modules/mime-db/HISTORY.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/uri-js/dist/es5/uri.all.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/uri-js/dist/es5/uri.all.min.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/uri-js/dist/esnext/uri.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/eslint-module-utils/CHANGELOG.md",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/filelist/node_modules/minimatch/minimatch.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/rollup/dist/rollup.browser.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/rollup/dist/shared/rollup.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/rollup/dist/es/rollup.browser.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/rollup/dist/es/shared/rollup.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-lab-function/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/css-prefers-color-scheme/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-modules-scope/node_modules/postcss-selector-parser/postcss-selector-parser.d.ts",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-modules-scope/node_modules/postcss-selector-parser/API.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-modules-scope/node_modules/postcss-selector-parser/CHANGELOG.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-modules-scope/node_modules/postcss-selector-parser/dist/parser.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-modules-scope/node_modules/postcss-selector-parser/dist/selectors/attribute.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-modules-scope/node_modules/postcss-selector-parser/dist/selectors/node.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-modules-scope/node_modules/postcss-selector-parser/dist/selectors/namespace.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-modules-scope/node_modules/postcss-selector-parser/dist/selectors/className.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-modules-scope/src/index.js",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/node_modules/postcss-focus-within/LICENSE.md",
+    "keyword": "aws"
+  },
+  {
+    "file": "./frontend/build/index.html",
+    "keyword": "emergent"
+  },
+  {
+    "file": "./frontend/build/static/js/main.76055d6e.js",
+    "keyword": "emergent"
+  },
+  {
+    "file": "./frontend/build/static/js/main.76055d6e.js",
+    "keyword": "segment"
+  },
+  {
+    "file": "./frontend/build/osiris/js/core/storage/FirebaseAdapter.js",
+    "keyword": "firebase"
+  },
+  {
+    "file": "./frontend/src/App.js",
+    "keyword": "emergent"
+  },
+  {
+    "file": "./frontend/src/constants/testIds/auth.js",
+    "keyword": "emergent"
+  },
+  {
+    "file": "./frontend/src/constants/testIds/home.js",
+    "keyword": "emergent"
+  }
+]
