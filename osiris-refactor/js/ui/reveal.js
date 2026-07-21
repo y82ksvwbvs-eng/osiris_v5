@@ -148,12 +148,12 @@ const Reveal = {
     startBoss(pct, tier, xpBef, lvlBef, lvlAft) {
         const isFail = tier.outcome === 'defeat';
         const color = ['mythic','gold'].includes(tier.outcome) ? '#fbbf24' : (tier.outcome === 'silver' ? '#a1a1aa' : (isFail ? '#ff003c' : '#ffffff'));
-        const btnText = isFail ? "INCASSA IL FIASCO" : "ACCETTA IL TROFEO";
-        $('verdict-tag').innerText = `GIUDIZIO SETTIMANALE // BOSS BATTLE // ${tier.tag}`;
-        $('verdict-score-sub').innerText = `MEDIA 7 GIORNI // BONUS: +${tier.xp} XP`;
+        const btnText = isFail ? "ARCHIVIA IL REPORT" : "ARCHIVIA IL REPORT";
+        $('verdict-tag').innerText = `AUDIT SETTIMANALE // ${tier.tag}`;
+        $('verdict-score-sub').innerText = `MEDIA 7 GIORNI // XP: +${tier.xp}`;
         
-        $('lbl-cell-done').innerText = '100% GG'; $('lbl-cell-missed').innerText = 'FALLIMENTI';
-        $('lbl-cell-streak').innerText = 'GG PERSI'; $('lbl-cell-avg7').innerText = 'MEDIA 7GG';
+        $('lbl-cell-done').innerText = '100% GG'; $('lbl-cell-missed').innerText = 'DEVIAZIONI';
+        $('lbl-cell-streak').innerText = 'GG NON CHIUSI'; $('lbl-cell-avg7').innerText = 'MEDIA 7GG';
 
         const { vo, vw, vText, vArea } = this.setupOverlay(isFail, color, btnText);
         if (isFail) Corruption.set(0.7); else if (tier.outcome==='silver'||tier.outcome==='bronze') Corruption.set(0.18);

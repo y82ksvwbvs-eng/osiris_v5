@@ -10,7 +10,7 @@
 // Every symbol referenced from inline HTML `onclick="Foo.bar()"` attributes is
 // re-exposed on `window` so behavior stays identical to the original single-file build.
 
-import { CONFIG, GRADES, LEVEL_NAMES, ACHIEVEMENTS, TASK_SUGGESTIONS } from './core/config.js';
+import { CONFIG, GRADES, LEVEL_NAMES, ACHIEVEMENTS, TASK_SUGGESTIONS, ANOMALIES, CONTAINMENT_THRESHOLDS, EXT_PROTOCOL } from './core/config.js';
 import { Utils }                from './core/utils.js';
 import { DOM, $ }               from './core/dom.js';
 import { AudioEngine }          from './core/audio.js';
@@ -20,7 +20,9 @@ import { State, bindUI as bindStateUI }      from './logic/state.js';
 import { Corruption }                        from './logic/corruption.js';
 import { Purgatory }                         from './logic/purgatory.js';
 import { Gamification, bindUI as bindGamificationUI } from './logic/gamification.js';
-import { BossHP }                            from './logic/bossHp.js';
+import { BossHP, bindContainment as bindBossContainment } from './logic/bossHp.js';
+import { Anomaly }                           from './logic/anomaly.js';
+import { Containment, bindUI as bindContainmentUI } from './logic/containment.js';
 import { Logic, bindUI as bindLogicUI }      from './logic/logic.js';
 
 import { Narrator }                          from './features/narrator.js';
@@ -31,6 +33,7 @@ import { CanvasExport,  bindUI as bindCanvasUI }      from './features/canvasExp
 import { ShareURL,      bindUI as bindShareUI, bindBackup as bindShareBackup }        from './features/shareURL.js';
 import { Reorder,       bindUI as bindReorderUI }     from './features/reorder.js';
 import { TrophyUI,      bindUI as bindTrophyUI_UI }   from './features/trophyUi.js';
+import { ExtProtocol,   bindUI as bindExtProtocolUI } from './features/extraordinary.js';
 
 import { UI, bindDeps as bindUIDeps }        from './ui/ui.js';
 import { Reveal, bindUI as bindRevealUI }    from './ui/reveal.js';
@@ -47,6 +50,9 @@ const App = {
         bindStateUI(UI);
         bindLogicUI(UI, Reveal, Reorder);
         bindGamificationUI(UI);
+        bindBossContainment(Containment);
+        bindContainmentUI(UI);
+        bindExtProtocolUI(UI);
         bindSuggestionsLogic(Logic);
         bindBackupUI(UI);
         bindBackupShareURL(ShareURL);
@@ -56,16 +62,17 @@ const App = {
         bindReorderUI(UI);
         bindTrophyUI_UI(UI);
         bindRevealUI(UI);
-        bindUIDeps({ Logic, Reveal, Reorder, TrophyUI });
+        bindUIDeps({ Logic, Reveal, Reorder, TrophyUI, Anomaly, ExtProtocol });
 
         // 5. Expose everything referenced from inline `onclick=` HTML attributes.
         //    The original single-file build relied on script-scope globals; ES-module
         //    scope isolates them, so we re-attach the *exact* names to `window`.
         Object.assign(window, {
             CONFIG, GRADES, LEVEL_NAMES, ACHIEVEMENTS, TASK_SUGGESTIONS,
+            ANOMALIES, CONTAINMENT_THRESHOLDS, EXT_PROTOCOL,
             Utils, DOM, $, AudioEngine,
-            State, Corruption, Purgatory, Gamification, BossHP, Logic,
-            Narrator, Streak, Suggestions, Backup, CanvasExport, ShareURL, Reorder, TrophyUI,
+            State, Corruption, Purgatory, Gamification, BossHP, Anomaly, Containment, Logic,
+            Narrator, Streak, Suggestions, Backup, CanvasExport, ShareURL, Reorder, TrophyUI, ExtProtocol,
             UI, Reveal, runBoot
         });
 

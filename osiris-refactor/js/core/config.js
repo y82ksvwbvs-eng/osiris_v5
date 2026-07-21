@@ -1,5 +1,15 @@
 // O.S.I.R.I.S. — Configuration constants
-// Extracted verbatim from osiris-V4.html (MOD 01)
+// Extracted from osiris-V4.html (MOD 01) + extensions for the Behavioral Monitoring model.
+//
+// Schema: v3 preserved (STORE_KEY / BACKUP_KEY / SCHEMA_VERSION unchanged).
+// The new Behavioral Monitoring model reuses the same fields under new *semantic*
+// names — no data migration required, save-compat is total.
+//   bossWeek     → session week key (unchanged)
+//   bossDmg      → raw deviation points (interpreted as corruption raw)
+//   bossHeal     → raw compliance points (interpreted as containment raw)
+//   bossHistory  → weekly session history (unchanged)
+//   lastBossWeek → last review timestamp (unchanged)
+// New optional fields added by the refactor: `currentAnomaly`, `extProtocol`.
 const CONFIG = {
     STORE_KEY: 'osiris_db_v3',
     BACKUP_KEY: 'osiris_db_v3_backup',
@@ -29,16 +39,18 @@ const LEVEL_NAMES = [
     "ARCONTE SILENTE","DOMINATORE INTERIORE","RE DI SE STESSO","MONARCA ASSOLUTO","IMPERATORE STOICO","CUSTODE DELL'ORDINE","ORACOLO DELLA LEGGE","SIGNORE DELL'ETERNO NO","QUASI-DIVINITÀ","OSIRIS INCARNATO"
 ];
 
+// ACHIEVEMENTS: IDs preserved for save-compat with v3 records; only UI titles/descriptions
+// were normalized to the Behavioral Monitoring vocabulary (no RPG references).
 const ACHIEVEMENTS = [
-    { id: 'first_blood', title: 'PRIMO SANGUE', desc: 'Sopravvivi al primo giudizio.', icon: '🗡️' },
-    { id: 'streak_7', title: 'DOGMA', desc: 'Mantieni una catena di 7 giorni perfetti.', icon: '⛓️' },
-    { id: 'streak_30', title: 'MONOLITE', desc: 'Mantieni una catena di 30 giorni perfetti.', icon: '🕋' },
-    { id: 'boss_mythic', title: 'DEICIDA', desc: 'Distruggi il Boss con un indice Mythic (≥90%).', icon: '👑' },
-    { id: 'purgatory_escape', title: 'REDENZIONE', desc: 'Esci dalla modalità Purgatorio con un 100%.', icon: '🔥' },
-    { id: 'level_50', title: 'MEZZO SECOLO', desc: 'Raggiungi il livello 50.', icon: '⏳' },
-    { id: 'total_100_tasks', title: 'MACCHINA', desc: 'Completa 100 doveri totali.', icon: '⚙️' },
-    { id: 'total_500_tasks', title: 'ALGORITMO', desc: 'Completa 500 doveri totali.', icon: '💻' },
-    { id: 'prestige_1', title: 'ASCENSIONE', desc: 'Ottieni il tuo primo grado di Prestigio.', icon: '🌟' }
+    { id: 'first_blood',      title: 'PRIMA REGISTRAZIONE', desc: 'Il sistema ha completato il tuo primo Audit.',                              icon: '◉' },
+    { id: 'streak_7',         title: 'DISCIPLINA STABILE',  desc: 'Sette cicli consecutivi in conformità totale.',                             icon: '◈' },
+    { id: 'streak_30',        title: 'MONOLITE',            desc: 'Trenta cicli consecutivi in conformità totale.',                            icon: '◆' },
+    { id: 'boss_mythic',      title: 'CONTENIMENTO OTTIMALE', desc: 'Anomalia settimanale contenuta con indice di conformità ≥ 90%.',           icon: '▲' },
+    { id: 'purgatory_escape', title: 'STABILIZZAZIONE',     desc: 'Uscita dallo stato di Purgatorio con conformità 100%.',                     icon: '◇' },
+    { id: 'level_50',         title: 'SOGLIA 50',           desc: 'Raggiunto il livello di osservazione 50.',                                  icon: '▣' },
+    { id: 'total_100_tasks',  title: 'MACCHINA',            desc: 'Cento direttive completate. Il sistema registra ripetibilità.',             icon: '⊞' },
+    { id: 'total_500_tasks',  title: 'ALGORITMO',           desc: 'Cinquecento direttive completate. Autonomia comportamentale confermata.',   icon: '⊟' },
+    { id: 'prestige_1',       title: 'ASCENSIONE',          desc: 'Primo grado di Prestigio registrato nell\'archivio.',                       icon: '✧' }
 ];
 
 /* Pool di doveri suggeriti — O.S.I.R.I.S. propone almeno 2 direttive al giorno.
@@ -62,4 +74,45 @@ const TASK_SUGGESTIONS = [
     "MANGIA LENTAMENTE E CONSAPEVOLE", "FAI QUALCOSA CHE RIMANDI DA GIORNI", "LEGGI PRIMA DI DORMIRE", "IDRATAZIONE COSTANTE"
 ];
 
-export { CONFIG, GRADES, LEVEL_NAMES, ACHIEVEMENTS, TASK_SUGGESTIONS };
+// ============================================================================
+// Behavioral Monitoring model (Weekly System refactor)
+// ============================================================================
+
+// ANOMALIES — one is auto-selected every Monday (deterministic by ISO week).
+// The catalog is open-ended: append new entries here without touching any logic.
+// Each anomaly is a *diagnosis*, not a character or enemy.
+const ANOMALIES = [
+    { id: 'inertia',        code: 'AN-01', name: 'INERZIA',        desc: 'Rilevata resistenza sistematica all\'avvio delle direttive.' },
+    { id: 'complacency',    code: 'AN-02', name: 'COMPIACIMENTO',  desc: 'Rilevata riduzione dello sforzo dopo esiti favorevoli.' },
+    { id: 'burnout',        code: 'AN-03', name: 'ESAURIMENTO',    desc: 'Rilevato calo prolungato di rendimento senza recupero.' },
+    { id: 'dispersion',     code: 'AN-04', name: 'DISPERSIONE',    desc: 'Rilevata frammentazione dell\'attenzione tra direttive concorrenti.' },
+    { id: 'overconfidence', code: 'AN-05', name: 'IPERSTIMA',      desc: 'Rilevata sopravvalutazione delle proprie capacità operative.' },
+    { id: 'avoidance',      code: 'AN-06', name: 'ELUSIONE',       desc: 'Rilevato rinvio ripetuto di direttive critiche.' },
+    { id: 'perfectionism',  code: 'AN-07', name: 'PERFEZIONISMO',  desc: 'Rilevata paralisi operativa da soglia qualitativa irrealistica.' }
+];
+
+// CONTAINMENT PROTOCOLS — deterministic, threshold-triggered, purely diagnostic
+// (visual + notifications). No forced gameplay changes (user choice 2c).
+// The order matters: last matching threshold wins.
+const CONTAINMENT_THRESHOLDS = [
+    { pct: 20, code: 'CP-01', name: 'AVVISO DIAGNOSTICO',        css: 'ct-1', notice: 'CP-01 ATTIVO. Corruzione oltre soglia 20%. Sistema in osservazione.' },
+    { pct: 40, code: 'CP-02', name: 'MONITORAGGIO ESTESO',       css: 'ct-2', notice: 'CP-02 ATTIVO. Corruzione oltre soglia 40%. Sensibilità diagnostica aumentata.' },
+    { pct: 60, code: 'CP-03', name: 'OFFUSCAMENTO SECONDARIO',   css: 'ct-3', notice: 'CP-03 ATTIVO. Corruzione oltre soglia 60%. Statistiche secondarie oscurate.' },
+    { pct: 80, code: 'CP-04', name: 'INSTABILITÀ INTERFACCIA',   css: 'ct-4', notice: 'CP-04 ATTIVO. Corruzione oltre soglia 80%. Interfaccia in degrado controllato.' },
+    { pct: 95, code: 'CP-05', name: 'CONTENIMENTO CRITICO',      css: 'ct-5', notice: 'CP-05 ATTIVO. Corruzione oltre soglia 95%. Efficienza XP ridotta.' }
+];
+
+// XP efficiency multiplier — only reduced by CP-05 (soglia 95%). Everything else is visual.
+const CONTAINMENT_XP_MULT = { 'CP-05': 0.85 };
+
+// EXTRAORDINARY PROTOCOL — one per ISO week, user-defined behavioral challenge.
+// Success reduces raw corruption points; failure adds a small penalty.
+const EXT_PROTOCOL = {
+    SUCCESS_CONTAINMENT: 40,   // subtracted from corruption raw (Δ) on success
+    FAILURE_DEVIATION:    15    // added to corruption raw on failure
+};
+
+export {
+    CONFIG, GRADES, LEVEL_NAMES, ACHIEVEMENTS, TASK_SUGGESTIONS,
+    ANOMALIES, CONTAINMENT_THRESHOLDS, CONTAINMENT_XP_MULT, EXT_PROTOCOL
+};

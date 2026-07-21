@@ -20,7 +20,10 @@ const State = {
         schemaVersion: CONFIG.SCHEMA_VERSION, tasks: [], history: {}, streak: 0, bestStreak: 0,
         lastJudged: null, targetTasks: 1, xp: 0, lastBossWeek: null, bossHistory: {},
         achievements: [], prestige: 0, totalTasksCompleted: 0, totalTasksMissed: 0,
-        bossWeek: null, bossDmg: 0, bossHeal: 0, confessions: []
+        bossWeek: null, bossDmg: 0, bossHeal: 0, confessions: [],
+        // Behavioral Monitoring model — additive, save-compat with any v3 payload.
+        currentAnomaly: null,   // { week, id }  — refreshed every Monday by Anomaly.current()
+        extProtocol:    null    // { week, text, resolved, success } — Extraordinary Protocol per ISO week
     },
     activeDate: Utils.todayStr(),
     currentCalendarDate: new Date(),
@@ -59,6 +62,9 @@ const State = {
             if (typeof this.data.bossWeek !== 'string' && this.data.bossWeek !== null) this.data.bossWeek = null;
         }
         if (!Array.isArray(this.data.confessions)) this.data.confessions = [];
+        // Behavioral Monitoring additive fields — safe defaults for any v3 save.
+        if (typeof this.data.currentAnomaly === 'undefined') this.data.currentAnomaly = null;
+        if (typeof this.data.extProtocol    === 'undefined') this.data.extProtocol    = null;
     },
     save() {
         Storage.set(CONFIG.BACKUP_KEY, JSON.stringify(this.data)); // Safe write

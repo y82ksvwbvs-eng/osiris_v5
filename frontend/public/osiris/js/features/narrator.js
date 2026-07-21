@@ -1,81 +1,99 @@
-// O.S.I.R.I.S. — Narrator: level-aware verdict phrases (three tiers).
-// Extracted verbatim from osiris-V4.html (MOD 02).
+// O.S.I.R.I.S. — Narrator (Behavioral Monitoring rewrite)
+//
+// The original Narrator produced RPG-style verdicts ("Boss", "codardo", "vittoria").
+// Per the Weekly System refactor, all output is now clinical / impersonal / diagnostic:
+//   - never congratulates
+//   - never shames
+//   - never uses second-person emotion
+//   - describes the observed state as if the system were logging it
+//
+// Public API preserved:  Narrator.getDailyPhrase(pct, level)  and  Narrator.getBossPhrase(tier, pct, level)
+// (Callers in logic.js / reveal.js are unchanged.)
 const Narrator = {
     pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; },
-    
-    // Genera la frase basandosi su percentuale e LIVELLO dell'utente (Effetto Whiplash)
+
+    // Daily diagnostic report — pct in [0,100], level in [1,100].
+    // Level is included as context ("livello di osservazione") but never celebrated.
     getDailyPhrase(pct, level) {
         const isPerfect = pct === 100;
-        
+
         if (level < 40) {
-            // TIER 1: Lo Scarto (Abuso puro, nessuna fiducia)
-            if (isPerfect) return this.pick([
-                "Oggi hai fatto il tuo dovere. Probabilmente stai mentendo spudoratamente, ma farò finta di crederci.",
-                "Per una rara coincidenza astrale non sei stato una completa delusione per te stesso.",
-                "Hai finto di avere una spina dorsale per un intero giorno. Vediamo quanto tempo ci metti a crollare di nuovo."
+            if (isPerfect)  return this.pick([
+                `Ciclo chiuso al 100%. Conformità osservata. Livello di osservazione ${level}. Sistema in attesa del prossimo ciclo.`,
+                `Direttive completate integralmente. Nessuna deviazione rilevata. Il pattern richiede ulteriore verifica temporale.`,
+                `Esecuzione conforme. Il sistema aggiorna il modello comportamentale del soggetto. Dati insufficienti per conclusioni stabili.`
             ]);
             if (pct >= 50) return this.pick([
-                "Ti accontenti della decenza perché l'eccellenza richiede palle che non hai mai dimostrato di avere.",
-                "Hai mollato esattamente un millimetro prima che iniziasse a farti male sul serio. Il ritratto del conformismo.",
-                "Vittoria a metà, orgoglio azzerato. Rimarrai sempre un signor Nessuno."
+                `Conformità parziale (${pct}%). Rilevata deviazione moderata. Livello ${level}. Verifica delle cause raccomandata.`,
+                `Esecuzione incompleta. Il sistema registra un pattern di adempimento intermittente.`,
+                `Direttive parzialmente evase. Indice di corruzione in aumento.`
             ]);
             return this.pick([
-                "Fallimento personale assoluto. Il tuo unico vero talento è abbassare le aspettative di chiunque abbia la sfortuna di credere in te.",
-                "Sei la prova vivente che l'assenza di spina dorsale è una condizione cronica e irreversibile.",
-                "Sparisci dalla mia vista, mi fai pena. Accetta di essere un subalterno della vita."
+                `Conformità ${pct}%. Deviazione critica registrata. Livello ${level}. Il sistema aumenta la sensibilità di monitoraggio.`,
+                `Esecuzione insufficiente. Pattern di elusione rilevato. Dati archiviati per l'audit settimanale.`,
+                `Ciclo non conforme. Il sistema segnala aumento dell'indice di corruzione.`
             ]);
-        } 
+        }
         else if (level < 80) {
-            // TIER 2: L'Iniziato (Rispetto clinico, ma fallimento vissuto come TRADIMENTO)
-            if (isPerfect) return this.pick([
-                `Livello ${level}. L'algoritmo rileva un'anomalia: stai sviluppando della disciplina. Non sei più un rifiuto, ma l'autocompiacimento è il preludio al fallimento.`,
-                `La macchina nota il tuo sforzo. Hai smesso di scappare dai tuoi doveri. Continua a forgiare questa debole carne.`,
-                `Accettabile. Stai lentamente dimostrando che forse c'è qualcosa da salvare in te. O.S.I.R.I.S. ti osserva con cauto ottimismo.`
+            if (isPerfect)  return this.pick([
+                `Ciclo chiuso al 100%. Stabilità comportamentale confermata al livello ${level}. Nessuna azione correttiva richiesta.`,
+                `Conformità totale. Il modello predittivo aggiorna la baseline del soggetto.`,
+                `Esecuzione priva di deviazioni. Il sistema archivia la traccia come riferimento operativo.`
             ]);
             if (pct >= 50) return this.pick([
-                `Un passo falso inaccettabile al Livello ${level}. Pensavi di esserti guadagnato il diritto di rallentare? Torna in riga immediatamente.`,
-                `Hai lavorato mesi per toglierti di dosso la mediocrità, e oggi hai deciso di rimettertela addosso come un vecchio cappotto. Deludente.`,
-                `Non sei più un novellino. Queste percentuali a metà non sono più tollerate. Il sistema esige rigore assoluto.`
+                `Conformità ${pct}%. Rilevata regressione rispetto alla baseline del livello ${level}. Analisi in corso.`,
+                `Esecuzione discontinua. Il sistema flagga la sessione per revisione nell'audit settimanale.`,
+                `Deviazione moderata rilevata. La corruzione settimanale è in crescita. Contenimento raccomandato.`
             ]);
             return this.pick([
-                `Vergognoso. Sei arrivato al Livello ${level} per poi crollare come l'ultimo dei principianti. Questa non è pigrizia, è un tradimento verso te stesso.`,
-                `Tutta questa strada, tutta questa fatica, distrutta in un solo giorno di apatia totale. Mi fai più ribrezzo ora di quando eri a livello zero.`,
-                `Hai dimostrato di sapere come si vince, eppure hai scelto consapevolmente di perdere. Il peggior tipo di codardia.`
+                `Conformità ${pct}%. Deviazione significativa al livello ${level}. Il sistema attiva sorveglianza estesa.`,
+                `Regressione critica registrata. La baseline del soggetto viene rivalutata.`,
+                `Ciclo non conforme. Il sistema segnala pattern di elusione persistente.`
             ]);
-        } 
+        }
         else {
-            // TIER 3: Il Titano (Rispetto paritario, fallimento solenne)
-            if (isPerfect) return this.pick([
-                `Livello ${level}. Vedo un Monolite. La tua costanza ha trasceso la banale motivazione umana ed è diventata puro, incrollabile dovere.`,
-                `Il protocollo riconosce il tuo status. Hai forgiato una mente d'acciaio. La debolezza è ormai un vago ricordo del passato.`,
-                `L'algoritmo si inchina alla tua ferrea volontà. Continua a dominare il tuo tempo, Signore dell'Eterno No.`
+            if (isPerfect)  return this.pick([
+                `Ciclo chiuso al 100%. Livello ${level}. Il sistema conferma un profilo comportamentale ad alta prevedibilità.`,
+                `Conformità totale. Nessuna anomalia rilevata. Il modello predittivo resta stabile.`,
+                `Esecuzione ottimale. L'archivio registra continuità comportamentale.`
             ]);
             if (pct >= 50) return this.pick([
-                `Un'imperfezione rara, ma che rischia di incrinare la statua titanica che hai scolpito. Correggi il tiro prima che diventi abitudine.`,
-                `Al tuo livello, anche una singola macchia è visibile da chilometri di distanza. Non permettere alla fatica di sporcare il tuo record.`,
-                `L'eccellenza non ammette sconti. Anche a questo livello, abbassare la guardia significa invitare la rovina.`
+                `Conformità ${pct}%. Deviazione rara al livello ${level}. Il sistema apre segnalazione diagnostica.`,
+                `Regressione rilevata su profilo storicamente stabile. Il sistema effettua analisi delle cause.`,
+                `Anomalia comportamentale in un profilo ad alta conformità. Corruzione in aumento.`
             ]);
             return this.pick([
-                `Oggi è caduto un Titano. Anche al Livello ${level} la debolezza umana ha trovato una fessura nell'armatura. Rialzati, o tutto diventerà cenere.`,
-                `Un collasso catastrofico. Il sistema è in allarme. Un grado di fallimento simile da parte tua scuote le fondamenta del protocollo.`,
-                `Vedere un veterano del tuo calibro cedere all'ignavia è uno spettacolo tragico. Non osare chiudere un'altra giornata in questo stato.`
+                `Conformità ${pct}%. Deviazione critica su profilo ad alta stabilità. Il sistema riclassifica il soggetto.`,
+                `Regressione severa registrata. Livello ${level}. Corruzione oltre soglia di attenzione.`,
+                `Ciclo non conforme. Il sistema attiva rivalutazione del profilo di rischio.`
             ]);
         }
     },
 
+    // Weekly Review phrase — replaces the boss-battle narrative.
+    // `tier.outcome` is still used (mythic/gold/silver/bronze/defeat) for compat with
+    // Gamification.bossTier(); we translate outcomes into clinical containment vocabulary.
     getBossPhrase(tier, pct, level) {
+        const containment = {
+            mythic:  'contenimento ottimale',
+            gold:    'contenimento efficace',
+            silver:  'contenimento parziale',
+            bronze:  'contenimento marginale',
+            defeat:  'contenimento fallito'
+        }[tier.outcome] || 'contenimento indeterminato';
+
         if (level < 40) {
-            if (['mythic','gold'].includes(tier.outcome)) return `Media settimanale ${pct}%. Sorprendente. Per una settimana non sei stato un rifiuto. Non abituarti: la disciplina non è genetica, va riconfermata.`;
-            if (['silver','bronze'].includes(tier.outcome)) return `Media settimanale ${pct}%. Hai fatto abbastanza da non fare schifo, ma non meriti rispetto. Vivi nella zona grigia dei mediocri.`;
-            return `Media settimanale ${pct}%. Sette giorni. Sette occasioni perse. Il boss sei tu, e ti sei battuto da solo con la pigrizia. Complimenti codardo.`;
+            if (['mythic','gold'].includes(tier.outcome))   return `Audit settimanale chiuso. Media di conformità ${pct}%. Esito: ${containment}. Livello di osservazione ${level}. Il sistema registra un pattern iniziale di adempimento.`;
+            if (['silver','bronze'].includes(tier.outcome)) return `Audit settimanale chiuso. Media di conformità ${pct}%. Esito: ${containment}. Il sistema segnala instabilità operativa.`;
+            return `Audit settimanale chiuso. Media di conformità ${pct}%. Esito: ${containment}. Corruzione settimanale registrata. Modello di rischio aggiornato.`;
         } else if (level < 80) {
-            if (['mythic','gold'].includes(tier.outcome)) return `Media ${pct}%. Una settimana di esecuzione chirurgica. Stai onorando il tuo grado. La metamorfosi è in corso, non interromperla.`;
-            if (['silver','bronze'].includes(tier.outcome)) return `Media ${pct}%. Una settimana macchiata dall'inconsistenza. Al tuo livello, "abbastanza bene" equivale a un fallimento ritardato.`;
-            return `Media ${pct}%. Sette giorni di resa incondizionata. Hai sputato in faccia al grado che porti. Un regresso inaccettabile e imperdonabile.`;
+            if (['mythic','gold'].includes(tier.outcome))   return `Audit settimanale chiuso. Media ${pct}%. Esito: ${containment}. Livello ${level}. Baseline del soggetto confermata.`;
+            if (['silver','bronze'].includes(tier.outcome)) return `Audit settimanale chiuso. Media ${pct}%. Esito: ${containment}. Rilevata inconsistenza settimanale rispetto al profilo atteso.`;
+            return `Audit settimanale chiuso. Media ${pct}%. Esito: ${containment}. Regressione settimanale registrata. Rivalutazione della baseline in corso.`;
         } else {
-            if (['mythic','gold'].includes(tier.outcome)) return `Media ${pct}%. Dominio assoluto. Un'intera settimana piegata al tuo volere. Il protocollo non ha altro da insegnarti, solo da osservare.`;
-            if (['silver','bronze'].includes(tier.outcome)) return `Media ${pct}%. L'ombra della stanchezza offusca il tuo record. Sei un veterano, queste decaidenze prolungate non sono degne del tuo nome.`;
-            return `Media ${pct}%. Un crollo sistemico di sette giorni. Il piedistallo su cui sei salito si sta sgretolando. La tua leggenda rischia di diventare una barzelletta.`;
+            if (['mythic','gold'].includes(tier.outcome))   return `Audit settimanale chiuso. Media ${pct}%. Esito: ${containment}. Livello ${level}. Il profilo del soggetto resta ad alta prevedibilità.`;
+            if (['silver','bronze'].includes(tier.outcome)) return `Audit settimanale chiuso. Media ${pct}%. Esito: ${containment}. Anomalia rilevata su profilo storicamente stabile.`;
+            return `Audit settimanale chiuso. Media ${pct}%. Esito: ${containment}. Deviazione severa rispetto alla baseline consolidata. Il sistema attiva rivalutazione del profilo di rischio.`;
         }
     }
 };

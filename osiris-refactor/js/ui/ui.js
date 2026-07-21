@@ -13,8 +13,11 @@ import { Streak }               from '../features/streak.js';
 import { Suggestions }          from '../features/suggestions.js';
 
 // Late-bound to break UI ↔ Logic / Reveal / Reorder circular imports.
-let Logic = null, Reveal = null, Reorder = null, TrophyUI = null;
-export function bindDeps(deps) { Logic = deps.Logic; Reveal = deps.Reveal; Reorder = deps.Reorder; TrophyUI = deps.TrophyUI; }
+let Logic = null, Reveal = null, Reorder = null, TrophyUI = null, Anomaly = null, ExtProtocol = null;
+export function bindDeps(deps) {
+    Logic = deps.Logic; Reveal = deps.Reveal; Reorder = deps.Reorder; TrophyUI = deps.TrophyUI;
+    Anomaly = deps.Anomaly; ExtProtocol = deps.ExtProtocol;
+}
 
 const UI = {
     renderAll() {
@@ -49,6 +52,8 @@ const UI = {
         Suggestions.render();
         Purgatory.evaluate();
         BossHP.render();
+        // Behavioral Monitoring: refresh the weekly Anomaly banner every render.
+        if (Anomaly) Anomaly.render();
         
         // Boss vs Daily Toggle
         const canFightBoss = Utils.isSunday() && State.data.lastBossWeek !== Utils.getISOWeek(new Date());
@@ -173,6 +178,35 @@ const UI = {
     closePurgeModal() { AudioEngine.play('type'); this.fadeOutModal('purge-modal'); },
     openBackupModal() { AudioEngine.play('check'); Utils.triggerVibe(15); $('backup-paste-area').value = ''; this.fadeInModal('backup-modal'); },
     closeBackupModal() { AudioEngine.play('type'); this.fadeOutModal('backup-modal'); },
+
+    // Extraordinary Protocol (Behavioral Monitoring add-on).
+    // Rendering rule: if a protocol is already open for this ISO week (not yet
+    // resolved), show the "in corso" panel with resolve buttons; otherwise show
+    // the free-form input for a new challenge.
+    openExtProtocolModal() {
+        AudioEngine.play('check'); Utils.triggerVibe(15);
+        if (!ExtProtocol) return;
+        const cur = ExtProtocol.current();
+        const bodyInput = $('ext-protocol-body'), bodyActive = $('ext-protocol-active');
+        if (cur && !cur.resolved) {
+            bodyInput.classList.add('hidden'); bodyActive.classList.remove('hidden');
+            $('ext-protocol-active-text').innerText = cur.text;
+        } else {
+            bodyActive.classList.add('hidden'); bodyInput.classList.remove('hidden');
+            $('ext-protocol-input').value = '';
+        }
+        this.fadeInModal('ext-protocol-modal');
+    },
+    closeExtProtocolModal() { AudioEngine.play('type'); this.fadeOutModal('ext-protocol-modal'); },
+    submitExtProtocol() {
+        if (!ExtProtocol) return;
+        const text = $('ext-protocol-input').value;
+        if (ExtProtocol.start(text)) { this.closeExtProtocolModal(); }
+    },
+    resolveExtProtocol(success) {
+        if (!ExtProtocol) return;
+        if (ExtProtocol.resolve(success)) { this.closeExtProtocolModal(); }
+    },
     updateConfessionalCount() {
         const l = $('confessional-input').value.trim().length, cnt = $('confessional-count'), btn = $('confessional-submit');
         cnt.innerText = `${l} / 50`;

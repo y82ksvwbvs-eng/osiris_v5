@@ -186,3 +186,66 @@ body.streak-myth #status-pixel { box-shadow: 0 0 16px rgba(0,255,102,0.9) !impor
 .cal-cell { animation: calCellIn 0.4s cubic-bezier(0.19,1,0.22,1) both; }
 @keyframes calCellIn { from { opacity: 0; transform: translateY(4px); filter: brightness(2); } to { opacity: 1; transform: none; filter: none; } }
 .cal-cell .cal-dot { position: absolute; bottom: 3px; left: 50%; transform: translateX(-50%); width: 4px; height: 4px; border-radius: 50%; }
+/* ============================================================
+   10 // BEHAVIORAL MONITORING — Containment Protocol degradation
+   ------------------------------------------------------------
+   Applied to <body> by js/logic/containment.js when the Corruption
+   Index crosses a threshold. Effects are:
+     - subtle (never obstruct readability)
+     - deterministic (mapped 1:1 to the CP-01..CP-05 threshold)
+     - reversible (removing the class fully restores the UI)
+   Each higher tier layers on top of the previous one (compositional).
+============================================================ */
+
+/* CP-01 (≥20%) — subtle chromatic aberration on headings only */
+body.ct-1 h1, body.ct-1 h2, body.ct-1 h3,
+body.ct-1 .font-display { text-shadow: -0.6px 0 #ff2b5b, 0.6px 0 #2bd4ff; }
+
+/* CP-02 (≥40%) — extends aberration to task titles and adds terminal caret pulse */
+body.ct-2 .task-pod-text,
+body.ct-2 h1, body.ct-2 h2, body.ct-2 h3,
+body.ct-2 .font-display { text-shadow: -1px 0 #ff2b5b, 1px 0 #2bd4ff; }
+body.ct-2::after {
+    content: 'MONITORAGGIO ESTESO ▮';
+    position: fixed; bottom: 6px; left: 8px; z-index: 5;
+    font: 700 8px/1 "JetBrains Mono", monospace; letter-spacing: 2px;
+    color: rgba(255, 60, 60, 0.55); pointer-events: none;
+    animation: ctBlink 1.6s steps(2, end) infinite;
+}
+
+/* CP-03 (≥60%) — obscures the secondary averages (MEDIA 7GG / MEDIA 30GG) */
+body.ct-3 #avg-week, body.ct-3 #avg-month {
+    color: transparent !important;
+    text-shadow: 0 0 8px rgba(255,255,255,0.35);
+    filter: blur(1px);
+}
+body.ct-3::before {
+    content: '// OFFUSCAMENTO SECONDARIO ATTIVO //';
+    position: fixed; top: 60px; right: 10px; z-index: 5;
+    font: 700 8px/1 "JetBrains Mono", monospace; letter-spacing: 2px;
+    color: rgba(255, 60, 60, 0.6); pointer-events: none;
+}
+
+/* CP-04 (≥80%) — unstable borders (mono-panels flicker) */
+body.ct-4 .mono-panel { animation: ctBorderShake 4.2s ease-in-out infinite; }
+
+/* CP-05 (≥95%) — full-screen chroma drift + persistent warning banner */
+body.ct-5 { filter: hue-rotate(-4deg) saturate(1.05); }
+body.ct-5 #main-content { animation: ctDrift 6s ease-in-out infinite; }
+
+/* Shared keyframes */
+@keyframes ctBlink { 0%, 60% { opacity: 1; } 61%, 100% { opacity: 0.15; } }
+@keyframes ctBorderShake {
+    0%, 100% { box-shadow: 3px 3px 0 var(--shadow-color,#0a0a0c); }
+    47%      { box-shadow: 4px 2px 0 rgba(255, 60, 60, 0.4); }
+    53%      { box-shadow: 2px 4px 0 rgba(60, 200, 255, 0.4); }
+}
+@keyframes ctDrift {
+    0%, 100% { transform: translate(0, 0); }
+    50%      { transform: translate(0.3px, -0.3px); }
+}
+
+/* Anomaly banner emphasis when a high-severity Containment is active. */
+body.ct-3 #anomaly-wrap, body.ct-4 #anomaly-wrap, body.ct-5 #anomaly-wrap {
+    border-color: rgba(255, 60, 60, 0.7);
+}

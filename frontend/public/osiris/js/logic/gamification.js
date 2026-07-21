@@ -27,13 +27,14 @@ const Gamification = {
         return Math.round(pct * 0.15);
     },
     
-    // Boss Battle Logic
+    // Weekly Review outcome tier — labels are now clinical / containment-oriented
+    // (no RPG vocabulary). Function name and outcome IDs preserved for save-compat.
     bossTier(pct) {
-        if (pct >= 90) return { outcome: 'mythic', xp: 500, tag: "MYTHIC // VITTORIA MONUMENTALE", css: 'tier-mythic' };
-        if (pct >= 75) return { outcome: 'gold', xp: 300, tag: "GOLD // VITTORIA CHIARA", css: 'tier-gold' };
-        if (pct >= 60) return { outcome: 'silver', xp: 200, tag: "SILVER // VITTORIA DI PIRRO", css: 'tier-silver' };
-        if (pct >= 45) return { outcome: 'bronze', xp: 100, tag: "BRONZE // SOPRAVVIVENZA", css: 'tier-bronze' };
-        return { outcome: 'defeat', xp: 0, tag: "SCONFITTA UMILIANTE", css: '' };
+        if (pct >= 90) return { outcome: 'mythic', xp: 500, tag: "AN-W // CONTENIMENTO OTTIMALE",       css: 'tier-mythic' };
+        if (pct >= 75) return { outcome: 'gold',   xp: 300, tag: "AN-W // CONTENIMENTO EFFICACE",      css: 'tier-gold' };
+        if (pct >= 60) return { outcome: 'silver', xp: 200, tag: "AN-W // CONTENIMENTO PARZIALE",      css: 'tier-silver' };
+        if (pct >= 45) return { outcome: 'bronze', xp: 100, tag: "AN-W // CONTENIMENTO MARGINALE",     css: 'tier-bronze' };
+        return                 { outcome: 'defeat', xp: 0,  tag: "AN-W // CONTENIMENTO FALLITO",       css: '' };
     },
 
     // Achievements

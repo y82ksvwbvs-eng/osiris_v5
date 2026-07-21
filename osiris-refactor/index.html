@@ -175,16 +175,36 @@
             
             <div id="boss-battle-wrap" class="relative rise" style="animation-delay:0.28s">
                 <button id="btn-boss-main" onclick="Logic.triggerBossJudgment()" class="btn-boss">
-                    [!] GIUDIZIO SETTIMANALE // BOSS BATTLE 
-                    <span class="block font-mono text-[9px] mt-1 opacity-70 tracking-widest">BONUS XP IN BASE ALLA MEDIA // SOLO DOMENICA</span>
+                    [!] AUDIT SETTIMANALE // COMPLIANCE EVALUATION
+                    <span class="block font-mono text-[9px] mt-1 opacity-70 tracking-widest">REVISIONE AUTOMATICA // DISPONIBILE OGNI DOMENICA</span>
                 </button>
             </div>
 
-            <!-- Boss Integrity (visible tutta la settimana) -->
+            <!-- Anomaly of the week (banner) -->
+            <div id="anomaly-wrap" class="mono-panel p-3 sm:p-4 rise" style="animation-delay:0.285s">
+                <div class="flex flex-col gap-1">
+                    <div class="flex items-center justify-between gap-2">
+                        <span class="text-[9px] sm:text-[10px] text-monolith-textDim font-bold uppercase tracking-widest font-mono">ANOMALIA COMPORTAMENTALE // CICLO CORRENTE</span>
+                        <span id="anomaly-code" class="text-[9px] sm:text-[10px] text-monolith-toxic font-mono font-black tracking-widest">AN-—</span>
+                    </div>
+                    <div id="anomaly-name" class="text-[13px] sm:text-sm text-white font-black uppercase tracking-widest font-mono">—</div>
+                    <div id="anomaly-desc" class="text-[10px] sm:text-[11px] text-monolith-textDim font-mono leading-relaxed">—</div>
+                </div>
+            </div>
+
+            <!-- Corruption Index (visibile tutta la settimana) -->
             <div id="boss-hp-wrap" class="boss-hp-wrap rise" style="animation-delay:0.29s">
-                <div class="boss-hp-label"><span>INTEGRITÀ BOSS SETTIMANALE</span><span class="boss-hp-val" id="boss-hp-text">100%</span></div>
-                <div class="boss-hp-bar"><div class="boss-hp-fill" id="boss-hp-fill" style="width:100%"></div></div>
-                <div class="mt-1 font-mono text-[8px] text-monolith-textDim tracking-widest" id="boss-hp-detail">DMG: 0 // HEAL: 0 // CICLO ATTIVO</div>
+                <div class="boss-hp-label"><span>INDICE DI CORRUZIONE</span><span class="boss-hp-val" id="boss-hp-text">0%</span></div>
+                <div class="boss-hp-bar"><div class="boss-hp-fill" id="boss-hp-fill" style="width:0%"></div></div>
+                <div class="mt-1 font-mono text-[8px] text-monolith-textDim tracking-widest" id="boss-hp-detail">INT: 100%  //  Δ+: 0  //  Δ-: 0  //  STATO: PROFILO STABILE</div>
+            </div>
+
+            <!-- Extraordinary Protocol trigger -->
+            <div id="ext-protocol-wrap" class="rise" style="animation-delay:0.295s">
+                <button data-testid="btn-open-ext-protocol" onclick="UI.openExtProtocolModal()" class="w-full p-3 text-[10px] sm:text-[11px] font-mono tracking-widest font-black uppercase border-2 border-monolith-border hover:border-white text-white bg-black transition-all hover:bg-white hover:text-black">
+                    ▷ AVVIA PROTOCOLLO STRAORDINARIO
+                    <span class="block font-mono text-[9px] mt-1 opacity-60 tracking-widest normal-case">Sfida comportamentale auto-definita // 1× a settimana</span>
+                </button>
             </div>
 
             <!-- Calendar -->
@@ -454,6 +474,35 @@
                 <span class="text-white font-black" id="confessions-count">0</span>
             </div>
             <div id="confessions-list" data-testid="confessions-list" class="space-y-3 max-h-[55vh] overflow-y-auto no-scrollbar pr-2"></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Extraordinary Protocol modal -->
+<div id="ext-protocol-modal" class="fixed inset-0 bg-black/98 backdrop-blur-md z-[80] hidden modal-scroll opacity-0 transition-opacity duration-200">
+    <div class="modal-inner max-w-lg mx-auto mt-8 sm:mt-20 p-6 sm:p-8 bg-monolith-panel border-2 border-monolith-border">
+        <div class="flex items-start justify-between gap-4 border-b-2 border-monolith-border pb-4 mb-4">
+            <div>
+                <div class="text-[9px] sm:text-[10px] text-monolith-toxic font-mono font-black tracking-widest">EP-01 // PROTOCOLLO STRAORDINARIO</div>
+                <div class="text-[15px] sm:text-base text-white font-black uppercase tracking-widest font-mono mt-1">SFIDA COMPORTAMENTALE</div>
+            </div>
+            <button onclick="UI.closeExtProtocolModal()" data-testid="btn-close-ext-protocol" class="text-white text-lg font-black font-mono hover:text-monolith-toxic transition-all" title="Chiudi">✕</button>
+        </div>
+        <div id="ext-protocol-body">
+            <p class="text-[10px] sm:text-[11px] text-monolith-textDim font-mono leading-relaxed mb-4">Definisci una direttiva comportamentale singola, verificabile e completabile entro il ciclo settimanale corrente. Il sistema registrerà l'esito nell'archivio di conformità.</p>
+            <textarea id="ext-protocol-input" data-testid="ext-protocol-input" rows="3" maxlength="240" placeholder="ES. NIENTE SOCIAL PER 5 GIORNI CONSECUTIVI" class="input-monolith w-full p-3 text-[11px] sm:text-xs font-bold tracking-widest font-mono uppercase mb-4"></textarea>
+            <button onclick="UI.submitExtProtocol()" data-testid="btn-submit-ext-protocol" class="btn-monolith w-full py-3 text-[11px] sm:text-xs font-mono tracking-widest font-black">REGISTRA PROTOCOLLO</button>
+        </div>
+        <div id="ext-protocol-active" class="hidden">
+            <div class="border-2 border-monolith-border p-3 mb-4">
+                <div class="text-[9px] text-monolith-textDim font-mono tracking-widest mb-1">PROTOCOLLO IN CORSO</div>
+                <div id="ext-protocol-active-text" class="text-[12px] text-white font-mono font-black uppercase">—</div>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+                <button onclick="UI.resolveExtProtocol(true)" data-testid="btn-resolve-ext-ok" class="p-3 text-[10px] font-mono tracking-widest font-black uppercase border-2 border-monolith-toxic text-monolith-toxic bg-black hover:bg-monolith-toxic hover:text-black transition-all">◉ COMPLETATO</button>
+                <button onclick="UI.resolveExtProtocol(false)" data-testid="btn-resolve-ext-fail" class="p-3 text-[10px] font-mono tracking-widest font-black uppercase border-2 border-monolith-border text-white bg-black hover:border-white transition-all">✕ FALLITO</button>
+            </div>
         </div>
     </div>
 </div>
