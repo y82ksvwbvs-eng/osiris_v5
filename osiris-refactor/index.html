@@ -418,13 +418,29 @@
             <div class="mb-5 p-3" style="border:2px solid #453303; background:linear-gradient(180deg,rgba(251,191,36,0.05),transparent);">
                 <div class="flex justify-between font-mono text-[10px] uppercase tracking-widest">
                     <span style="color:#fbbf24" class="font-black">PROGRESSO</span>
-                    <span class="text-white font-black"><span id="trophy-unlocked-count">0</span> / <span id="trophy-total-count">0</span></span>
+                    <span class="text-white font-black"><span id="trophy-unlocked-count">0</span> / <span id="trophy-total-count">0</span> <span id="trophy-progress-pct" class="text-monolith-textDim ml-2">// 0%</span></span>
                 </div>
                 <div class="w-full h-1.5 bg-monolith-border mt-2 relative overflow-hidden" style="border:1px solid #453303">
                     <div id="trophy-progress-bar" style="width:0%;background:#fbbf24;box-shadow:0 0 12px rgba(251,191,36,0.8)" class="absolute inset-y-0 left-0 transition-all duration-700"></div>
                 </div>
             </div>
-            <div id="trophies-grid" data-testid="trophies-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 max-h-[55vh] overflow-y-auto no-scrollbar pr-2"></div>
+            <!-- Extension 02 // Filter chips (state, then category) -->
+            <div id="trophy-filters" class="flex flex-wrap items-center gap-1.5 mb-3 pb-3 border-b border-monolith-border/50" data-active-state="all" data-active-category="all">
+                <span class="font-mono text-[9px] uppercase tracking-widest text-monolith-textDim mr-1">STATO:</span>
+                <button type="button" data-filter-state="all"      class="trophy-filter-chip active" data-testid="filter-state-all">TUTTI</button>
+                <button type="button" data-filter-state="unlocked" class="trophy-filter-chip"        data-testid="filter-state-unlocked">SBLOCCATI</button>
+                <button type="button" data-filter-state="locked"   class="trophy-filter-chip"        data-testid="filter-state-locked">BLOCCATI</button>
+                <button type="button" data-filter-state="hidden"   class="trophy-filter-chip"        data-testid="filter-state-hidden">NASCOSTI</button>
+                <span class="font-mono text-[9px] uppercase tracking-widest text-monolith-textDim mr-1 ml-3">CATEGORIA:</span>
+                <button type="button" data-filter-cat="all"        class="trophy-filter-chip cat active" data-testid="filter-cat-all">TUTTE</button>
+                <button type="button" data-filter-cat="discipline" class="trophy-filter-chip cat"        data-testid="filter-cat-discipline">DISCIPLINA</button>
+                <button type="button" data-filter-cat="consistency"class="trophy-filter-chip cat"        data-testid="filter-cat-consistency">COSTANZA</button>
+                <button type="button" data-filter-cat="progression"class="trophy-filter-chip cat"        data-testid="filter-cat-progression">PROGRESSIONE</button>
+                <button type="button" data-filter-cat="system"     class="trophy-filter-chip cat"        data-testid="filter-cat-system">SISTEMA</button>
+                <button type="button" data-filter-cat="secret"     class="trophy-filter-chip cat"        data-testid="filter-cat-secret">CLASSIFICATO</button>
+            </div>
+            <div id="trophies-grid" data-testid="trophies-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 max-h-[48vh] overflow-y-auto no-scrollbar pr-2"></div>
+            <div id="trophies-empty" class="hidden font-mono text-[10px] text-monolith-textDim uppercase tracking-widest text-center py-8 border-2 border-dashed border-monolith-border">// NESSUN RECORD CORRISPONDENTE AI FILTRI</div>
         </div>
     </div>
 </div>

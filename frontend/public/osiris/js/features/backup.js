@@ -24,6 +24,7 @@ const Backup = {
             const url = URL.createObjectURL(blob), a = document.createElement('a');
             a.href = url; a.download = `osiris_v3_${Utils.todayStr()}.json`; document.body.appendChild(a); a.click(); document.body.removeChild(a);
             setTimeout(() => URL.revokeObjectURL(url), 3000); AudioEngine.play('success'); UI.popToast("BACKUP ESPORTATO.");
+            this._flagArchiveUse();
         } catch(e) { AudioEngine.play('error'); UI.popToast("ERRORE ESPORTAZIONE.", true); }
     },
     async copyBase64() {
@@ -35,6 +36,16 @@ const Backup = {
             $('backup-paste-area').value = this.b64e(JSON.stringify(State.data));
             $('backup-paste-area').select(); AudioEngine.play('check'); UI.popToast("CODICE SOTTO. COPIA MANUALMENTE.", true);
         }
+        this._flagArchiveUse();
+    },
+    // Extension 02 // data_archivist tracker — flags that at least one export
+    // channel (file or base64) has been used, then defers the achievement check
+    // to the central Gamification hub so no duplicated unlock logic lives here.
+    _flagArchiveUse() {
+        if (State.data.hasExportedBackup) return;
+        State.data.hasExportedBackup = true; State.save();
+        // Late import to avoid a hard dependency loop with logic/gamification.
+        import('../logic/gamification.js').then(m => m.Gamification.checkAchievements());
     },
     importFile(e) {
         const file = e.target.files && e.target.files[0]; if (!file) return;

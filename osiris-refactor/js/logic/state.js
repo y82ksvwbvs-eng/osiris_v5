@@ -24,13 +24,18 @@ const State = {
         // Behavioral Monitoring model — additive, save-compat with any v3 payload.
         currentAnomaly: null,   // { week, id }  — refreshed every Monday by Anomaly.current()
         extProtocol:    null,   // { week, text, resolved, success } — Extraordinary Protocol per ISO week
-        // Achievement Expansion — trackers for the extension_01 catalog (all additive).
+        // Achievement Expansion — trackers for the extension_01/02 catalog (all additive).
         sectionsExplored:        [],     // string[] — modal IDs the subject has opened at least once
         weeklyPerfectStreak:     0,      // consecutive weekly audits with score ≥ 90%
         weeklyNoPurgatoryStreak: 0,      // consecutive weekly audits without entering purgatory
         extConsecutiveWins:      0,      // consecutive successful Extraordinary Protocols (0 = streak broken)
         lastActiveISO:           null,   // last ISO date the subject was seen active
-        recoveryPending:         false   // set when the subject returns after ≥ 7 days of silence
+        recoveryPending:         false,  // set when the subject returns after ≥ 7 days of silence
+        // Extension 02 // Achievement System v2
+        achievementUnlocks:      {},     // { [achId]: ISO timestamp } — capture the exact unlock moment for the details panel
+        purgatoryExits:          0,      // running count of successful purgatory exits
+        hasExportedBackup:       false,  // set true the first time Backup exports (file or clipboard)
+        hasUsedShareUrl:         false   // set true the first time ShareURL is copied/opened
     },
     activeDate: Utils.todayStr(),
     currentCalendarDate: new Date(),
@@ -89,6 +94,11 @@ const State = {
         if (typeof this.data.extConsecutiveWins      !== 'number') this.data.extConsecutiveWins      = 0;
         if (typeof this.data.lastActiveISO           === 'undefined') this.data.lastActiveISO   = null;
         if (typeof this.data.recoveryPending         !== 'boolean')   this.data.recoveryPending = false;
+        // Extension 02 trackers — safe defaults so existing saves keep working.
+        if (!this.data.achievementUnlocks || typeof this.data.achievementUnlocks !== 'object') this.data.achievementUnlocks = {};
+        if (typeof this.data.purgatoryExits   !== 'number')  this.data.purgatoryExits   = 0;
+        if (typeof this.data.hasExportedBackup !== 'boolean') this.data.hasExportedBackup = false;
+        if (typeof this.data.hasUsedShareUrl   !== 'boolean') this.data.hasUsedShareUrl   = false;
     },
     save() {
         // Refresh the "last active" watermark on every persist — used by load() to

@@ -240,14 +240,34 @@ const UI = {
         const intv = setInterval(() => { if (i < msg.length) span.innerText += msg.charAt(i++); else clearInterval(intv); }, 15);
         setTimeout(() => { t.classList.add('translate-x-[120%]'); setTimeout(() => t.remove(), 400); }, 4000);
     },
+    // Achievement System v2 // minimal system notification.
+    // Spec: single per unlock, <1s total, minimal animation, no flashing, no replay.
+    // A `Set` on this method dedupes across the session — if checkAchievements runs
+    // repeatedly and (paranoia) re-invokes popAchievement for the same id, we still
+    // display the notice exactly once. The rarity tints the top border only; no
+    // pulsing, no glow-in animation, no icon bounce — a plain terminal ticker.
     popAchievement(id) {
-        const ach = ACHIEVEMENTS.find(a => a.id === id); if(!ach) return;
-        const c = $('toast-container'), t = document.createElement('div');
-        t.className = `border-2 border-amber-400 text-amber-400 bg-amber-900/40 backdrop-blur-sm p-4 text-[10px] sm:text-xs font-mono shadow-[6px_6px_0px_rgba(0,0,0,0.8)] transform translate-x-[120%] transition-transform duration-300 max-w-[280px]`;
-        t.innerHTML = `<div class="font-black tracking-widest mb-1 flex items-center gap-2"><span class="text-lg">${ach.icon}</span> OBIETTIVO SBLOCCATO</div><div class="text-white">${ach.title}</div>`;
-        c.appendChild(t); AudioEngine.play('success');
-        requestAnimationFrame(() => t.classList.remove('translate-x-[120%]'));
-        setTimeout(() => { t.classList.add('translate-x-[120%]'); setTimeout(() => t.remove(), 400); }, 5000);
+        const ach = ACHIEVEMENTS.find(a => a.id === id);
+        if (!ach) return;
+        this._achShown = this._achShown || new Set();
+        if (this._achShown.has(id)) return;
+        this._achShown.add(id);
+
+        const rarity  = ach.rarity || 'common';
+        const c = $('toast-container');
+        const t = document.createElement('div');
+        t.setAttribute('role', 'status');
+        t.className = `ach-notice ach-rar-${rarity}`;
+        t.innerHTML =
+            `<div class="ach-notice-head">OBIETTIVO SBLOCCATO</div>` +
+            `<div class="ach-notice-body"><span class="ach-notice-icon">${ach.icon}</span><span class="ach-notice-title">${ach.title}</span></div>`;
+        c.appendChild(t);
+        // Single short beep. No re-play.
+        AudioEngine.play('success');
+        // Total on-screen time ≈ 900ms: 120ms in + 620ms hold + 160ms out.
+        requestAnimationFrame(() => t.classList.add('in'));
+        setTimeout(() => { t.classList.remove('in'); t.classList.add('out'); }, 740);
+        setTimeout(() => t.remove(), 940);
     },
 
     openStatsModal() {

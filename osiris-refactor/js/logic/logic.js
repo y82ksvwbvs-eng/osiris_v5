@@ -100,6 +100,9 @@ const Logic = {
                 if (State.data.streak > 0 && State.data.streak % 10 === 0) State.data.targetTasks = Math.max(State.data.targetTasks, State.data.tasks.length + 1);
                 if (wasInPurgatory && !State.data.achievements.includes('purgatory_escape')) {
                     State.data.achievements.push('purgatory_escape');
+                    State.data.achievementUnlocks = State.data.achievementUnlocks || {};
+                    State.data.achievementUnlocks['purgatory_escape'] = new Date().toISOString();
+                    State.data.purgatoryExits = (State.data.purgatoryExits || 0) + 1;
                     setTimeout(() => UI.popAchievement('purgatory_escape'), 2000);
                 }
                 // Recovery — consume the flag set by State when the subject returned
@@ -112,6 +115,15 @@ const Logic = {
                 }
                 State.data.recoveryPending = false;
             } else { State.data.streak = 0; }
+
+            // Extension 02 // midnight_audit — context-driven unlock: fires when the
+            // daily audit is closed within ±15 minutes of midnight local time.
+            {
+                const now = new Date();
+                const mins = now.getHours() * 60 + now.getMinutes();
+                const nearMidnight = (mins <= 15) || (mins >= (24 * 60 - 15));
+                if (nearMidnight) Gamification.unlockById('midnight_audit');
+            }
 
             const xpBefore = State.data.xp;
             const lvlBefore = Gamification.fromXP(xpBefore);
@@ -149,6 +161,11 @@ const Logic = {
             const purgatoryActive = document.body.classList.contains('purgatorio-active');
             if (purgatoryActive) State.data.weeklyNoPurgatoryStreak = 0;
             else                 State.data.weeklyNoPurgatoryStreak++;
+
+            // Extension 02 // zero_deviation_week — context-driven: the weekly review
+            // is closing this ISO week; if the raw deviation counter is still zero,
+            // the subject completed the week without any registered failure.
+            if ((State.data.bossDmg | 0) === 0) Gamification.unlockById('zero_deviation_week');
 
             const xpBefore = State.data.xp;
             const lvlBefore = Gamification.fromXP(xpBefore);

@@ -284,3 +284,63 @@ body.ct-3 #anomaly-wrap, body.ct-4 #anomaly-wrap, body.ct-5 #anomaly-wrap {
     0%, 100% { box-shadow: 6px 6px 0 rgba(255, 0, 60, 0.2); }
     50%      { box-shadow: 6px 6px 0 rgba(255, 0, 60, 0.5); }
 }
+
+/* ============================================================
+   12 // ACHIEVEMENT SYSTEM v2 — filters, unlock details, minimal notice
+   ------------------------------------------------------------
+   Filter chips live above the trophy grid. State chips + Category chips
+   share the same visual language: monochrome, terminal-styled toggles.
+   Selection is indicated by inversion (foreground/background swap) —
+   no glow, no gradient, no bounce. Matches the dystopian aesthetic.
+============================================================ */
+.trophy-filter-chip {
+    font: 700 9px/1.4 "JetBrains Mono", monospace; letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(255,255,255,0.55); background: transparent;
+    border: 1px solid rgba(255,255,255,0.2); padding: 4px 8px; cursor: pointer;
+    transition: background 120ms linear, color 120ms linear, border-color 120ms linear;
+}
+.trophy-filter-chip:hover  { color: #fff; border-color: rgba(255,255,255,0.5); }
+.trophy-filter-chip.active { color: #000; background: #fbbf24; border-color: #fbbf24; }
+.trophy-filter-chip.cat.active { background: #fff; border-color: #fff; }
+
+/* Details block on unlocked trophy cards — unlock date + XP badge */
+.trophy-details {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: 6px; margin-top: 8px; padding-top: 6px;
+    border-top: 1px dashed rgba(255,255,255,0.15);
+}
+.trophy-unlocked-date {
+    font: 700 8px/1.2 "JetBrains Mono", monospace; letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.55); text-transform: uppercase;
+}
+.trophy-xp-badge {
+    font: 900 8px/1.2 "JetBrains Mono", monospace; letter-spacing: 1.5px;
+    color: #fbbf24; border: 1px solid rgba(251,191,36,0.4);
+    padding: 2px 5px; text-transform: uppercase;
+}
+.trophy-cat { flex-shrink: 0; }
+
+/* ------------------------------------------------------------
+   Minimal unlock notification (spec v2: <1s, no flashing, no replay)
+------------------------------------------------------------ */
+.ach-notice {
+    pointer-events: none;
+    background: #000; border: 2px solid rgba(255,255,255,0.35); border-top-width: 3px;
+    padding: 8px 12px; min-width: 220px; max-width: 320px;
+    color: #fff; font-family: "JetBrains Mono", monospace;
+    opacity: 0; transform: translateX(24px);
+    transition: opacity 120ms linear, transform 120ms linear;
+}
+.ach-notice.in  { opacity: 1; transform: translateX(0); }
+.ach-notice.out { opacity: 0; transform: translateX(0); transition: opacity 160ms linear; }
+.ach-notice-head  { font-size: 8px; letter-spacing: 3px; font-weight: 900; text-transform: uppercase;
+                    color: rgba(255,255,255,0.55); margin-bottom: 3px; }
+.ach-notice-body  { display: flex; align-items: center; gap: 8px; }
+.ach-notice-icon  { font-size: 14px; line-height: 1; }
+.ach-notice-title { font-size: 11px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; }
+
+/* Rarity → top-border tint on the notice (no glow, spec compliance). */
+.ach-notice.ach-rar-common    { border-top-color: #ffffff; }
+.ach-notice.ach-rar-rare      { border-top-color: #3cc8ff; }
+.ach-notice.ach-rar-epic      { border-top-color: #fbbf24; }
+.ach-notice.ach-rar-legendary { border-top-color: #ff003c; }

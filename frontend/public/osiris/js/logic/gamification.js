@@ -39,13 +39,16 @@ const Gamification = {
 
     // Achievements — unlocks are additive; the unlock() helper reuses ACHIEVEMENTS
     // metadata to also grant XP (only for entries carrying an `xp` field, so legacy
-    // achievements keep their zero-XP behavior).
+    // achievements keep their zero-XP behavior) and to timestamp each unlock into
+    // State.data.achievementUnlocks (consumed by TrophyUI for the "sbloccato il ..." line).
     checkAchievements() {
         const d = State.data;
         const unlocks = [];
         const unlock = (id) => {
             if (d.achievements.includes(id)) return;
             d.achievements.push(id);
+            if (!d.achievementUnlocks || typeof d.achievementUnlocks !== 'object') d.achievementUnlocks = {};
+            d.achievementUnlocks[id] = new Date().toISOString();
             const meta = ACHIEVEMENTS.find(a => a.id === id);
             if (meta && typeof meta.xp === 'number' && meta.xp > 0) d.xp += meta.xp;
             unlocks.push(id);
@@ -63,26 +66,41 @@ const Gamification = {
         if (d.prestige > 0) unlock('prestige_1');
 
         // --- Extension 01 // Behavioral achievements ---------------------------
-        // Consistency
         if (d.bestStreak >= 100)          unlock('streak_100');
         if (d.weeklyPerfectStreak >= 4)   unlock('weekly_perfect_4');
-        // Self-control
         if (d.weeklyNoPurgatoryStreak >= 30) unlock('no_purgatory_30');
-        // Exploration — set of section IDs written by UI.trackExploration().
         const requiredSections = ['stats','trophies','confessions','backup','ext_protocol'];
         if (requiredSections.every(s => d.sectionsExplored.includes(s))) unlock('explorer');
-        // Long-term progression
         if (lvl >= 100)                   unlock('level_100');
-        // Hidden — three consecutive successful Extraordinary Protocols.
         if (d.extConsecutiveWins >= 3)    unlock('ghost_protocol');
-        // Recovery — flag is raised by State on ≥7 days silence and consumed by
-        //           Logic on the first 100% audit that follows the return.
-        //           Nothing to do here; Logic calls unlock('recovery') directly.
+
+        // --- Extension 02 // Achievement System v2 -----------------------------
+        if (d.weeklyPerfectStreak >= 12)  unlock('weekly_perfect_12');
+        if (d.purgatoryExits >= 5)        unlock('purgatory_survivor');
+        if (d.prestige >= 3)              unlock('prestige_3');
+        if (d.hasExportedBackup && d.hasUsedShareUrl) unlock('data_archivist');
+        // `zero_deviation_week` and `midnight_audit` unlock via context-driven hooks
+        // in Logic (weekly audit close + judgment close near midnight). See logic.js.
 
         if (unlocks.length > 0) {
             State.save();
-            unlocks.forEach((id, i) => setTimeout(() => UI.popAchievement(id), i * 1500));
+            unlocks.forEach((id, i) => setTimeout(() => UI.popAchievement(id), i * 1200));
         }
+    },
+
+    // Public helper for context-driven unlocks (e.g. midnight audit).
+    // Kept centralized so all unlock rules go through the same code path.
+    unlockById(id) {
+        const d = State.data;
+        if (d.achievements.includes(id)) return false;
+        d.achievements.push(id);
+        if (!d.achievementUnlocks || typeof d.achievementUnlocks !== 'object') d.achievementUnlocks = {};
+        d.achievementUnlocks[id] = new Date().toISOString();
+        const meta = ACHIEVEMENTS.find(a => a.id === id);
+        if (meta && typeof meta.xp === 'number' && meta.xp > 0) d.xp += meta.xp;
+        State.save();
+        setTimeout(() => UI.popAchievement(id), 400);
+        return true;
     }
 };
 

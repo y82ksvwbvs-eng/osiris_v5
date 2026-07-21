@@ -36,6 +36,11 @@ const ShareURL = {
             $('backup-paste-area').value = u; $('backup-paste-area').select();
             UI.popToast("URL SOTTO — COPIA MANUALMENTE.", true);
         }
+        // Extension 02 // data_archivist tracker — first Share URL use.
+        if (!State.data.hasUsedShareUrl) {
+            State.data.hasUsedShareUrl = true; State.save();
+            import('../logic/gamification.js').then(m => m.Gamification.checkAchievements());
+        }
     },
     checkOnBoot() {
         const m = location.hash.match(/#state=([^&]+)/);
